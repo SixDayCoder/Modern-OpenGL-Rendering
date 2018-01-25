@@ -8,6 +8,8 @@ namespace sixday
 	namespace utilits
 	{
 
+		#define DOUBLE_ONE_MILLION 1000000.0
+
 		using microseconds = std::chrono::microseconds;
 		using milliseconds = std::chrono::milliseconds;
 		using seconds = std::chrono::seconds;
@@ -15,56 +17,28 @@ namespace sixday
 		class Timer
 		{
 
-		private:
+		public:
 
 			using time_type = std::chrono::time_point<std::chrono::high_resolution_clock, microseconds>;
 
 		public:
 
-
 			Timer()
 			{
-				Reset();
+				CleanUp();
 			}
 
-			void Reset()
-			{
-				m_StartTime = time_type();
-				m_LastTime = time_type();
-				m_CurrentTime = time_type();
-				m_DeltaTime = milliseconds();
-			}
+			void CleanUp();
 
-			double DeltaTime()const
-			{
-				return static_cast<double>(m_DeltaTime.count() / 1000000.0);
-			}
+			double DeltaTime()const;
 
-			double ElapsedTime()const
-			{
-				microseconds tp = m_CurrentTime.time_since_epoch() - m_StartTime.time_since_epoch();
-				return static_cast<double>(tp.count() / 1000000.0);
-			}
+			double ElapsedTime()const;
 
-			double Frequency()const
-			{
+			double Frequency()const;
 
-			}
+			void StartClick();
 
-
-			void Start()
-			{
-				m_StartTime = std::chrono::time_point_cast<microseconds>(std::chrono::high_resolution_clock::now());
-				m_LastTime = m_StartTime;
-
-			}
-
-			void Tick()
-			{
-				m_CurrentTime = std::chrono::time_point_cast<microseconds>(std::chrono::high_resolution_clock::now());
-				m_DeltaTime = m_CurrentTime.time_since_epoch() - m_LastTime.time_since_epoch();
-				m_LastTime = m_CurrentTime;
-			}
+			void Tick();
 
 		private:
 
