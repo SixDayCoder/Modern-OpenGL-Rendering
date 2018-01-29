@@ -2,7 +2,7 @@
 #define SIXDAY_COMPONENT_H
 
 #include "Public\Utilits.h"
-#include <vector>
+#include "Public\RTTI.h"
 
 namespace sixday
 {
@@ -12,6 +12,7 @@ namespace sixday
 
 		class Component
 		{
+
 		protected:
 
 			bool m_bIsEnable;

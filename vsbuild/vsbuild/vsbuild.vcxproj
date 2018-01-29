@@ -152,7 +152,6 @@
   <ItemGroup>
     <ClCompile Include="..\..\src\Component\Component.cpp" />
     <ClCompile Include="..\..\src\Component\DrawableComponent.cpp" />
-    <ClCompile Include="..\..\src\Public\RTTI.cpp" />
     <ClCompile Include="..\..\src\Public\Utilits.cpp" />
     <ClCompile Include="..\..\src\RenderScene\RenderScene.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -160,7 +159,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\src\Component\Component.h" />
     <ClInclude Include="..\..\src\Component\DrawableComponent.h" />
-    <ClInclude Include="..\..\src\Public\RTTI.h" />
+    <ClInclude Include="..\..\src\Public\PublicDefine.h" />
     <ClInclude Include="..\..\src\Public\Utilits.h" />
     <ClInclude Include="..\..\src\RenderScene\RenderScene.h" />
   </ItemGroup>
