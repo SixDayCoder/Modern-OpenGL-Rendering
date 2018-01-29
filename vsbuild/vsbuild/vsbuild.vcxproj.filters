@@ -16,6 +16,12 @@
     <Filter Include="Public">
       <UniqueIdentifier>{7da8faad-064d-45a1-923b-978d9081aaee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Component">
+      <UniqueIdentifier>{64ed084c-9776-4b6f-9ad0-fb647073cda3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{1ffb76a5-b1a7-4c12-a14d-a185152235d2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -24,10 +30,34 @@
     <ClCompile Include="..\..\src\Public\Utilits.cpp">
       <Filter>Public</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\Component\Component.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Component\DrawableComponent.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Public\RTTI.cpp">
+      <Filter>Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\RenderScene\RenderScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\Public\Utilits.h">
       <Filter>Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Component\Component.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Component\DrawableComponent.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Public\RTTI.h">
+      <Filter>Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\RenderScene\RenderScene.h">
+      <Filter>Scene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

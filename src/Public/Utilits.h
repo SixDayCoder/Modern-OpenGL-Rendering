@@ -8,18 +8,14 @@ namespace sixday
 	namespace utilits
 	{
 
-		#define DOUBLE_ONE_MILLION 1000000.0
-
 		using microseconds = std::chrono::microseconds;
 		using milliseconds = std::chrono::milliseconds;
 		using seconds = std::chrono::seconds;
+		using time_type = std::chrono::time_point<std::chrono::high_resolution_clock, microseconds>;
 
 		class Timer
 		{
-
-		public:
-
-			using time_type = std::chrono::time_point<std::chrono::high_resolution_clock, microseconds>;
+			#define DOUBLE_ONE_MILLION 1000000.0
 
 		public:
 
