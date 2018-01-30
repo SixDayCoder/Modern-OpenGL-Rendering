@@ -1,8 +1,7 @@
 #ifndef SIXDAY_COMPONENT_H
 #define SIXDAY_COMPONENT_H
 
-#include "Public\Utilits.h"
-#include "Public\RTTI.h"
+#include "Public\PublicDefine.h"
 
 namespace sixday
 {
