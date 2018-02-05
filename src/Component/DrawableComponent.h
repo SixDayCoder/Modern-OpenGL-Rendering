@@ -1,13 +1,16 @@
 #ifndef SIXDAY_DRAWABLE_COMPONENT_H
 #define SIXDAY_DRAWABLE_COMPONENT_H
 
-#include "Public\PublicDefine.h"
+#include "Component\Component.h"
 
 namespace sixday
 {
 	namespace render
 	{
-		
+		class DrawableComponent : public Component
+		{
+
+		};
 	}
 }
 

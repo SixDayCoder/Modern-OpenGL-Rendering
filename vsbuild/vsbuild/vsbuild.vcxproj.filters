@@ -22,6 +22,9 @@
     <Filter Include="Scene">
       <UniqueIdentifier>{1ffb76a5-b1a7-4c12-a14d-a185152235d2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{85089dc1-7ebb-4854-b54c-8840db850eb7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -39,6 +42,12 @@
     <ClCompile Include="..\..\src\RenderScene\RenderScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\Camera\Camera.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Camera\FPSCamera.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\Public\Utilits.h">
@@ -55,6 +64,12 @@
     </ClInclude>
     <ClInclude Include="..\..\src\Public\PublicDefine.h">
       <Filter>Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Camera\Camera.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Camera\FPSCamera.h">
+      <Filter>Camera</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

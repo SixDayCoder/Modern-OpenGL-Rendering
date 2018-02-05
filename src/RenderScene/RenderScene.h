@@ -1,7 +1,7 @@
 #ifndef  SIXDAY_RENDER_SCENE_H
 #define  SIXDAY_RENDER_SCENE_H
 
-#include "Public\PublicDefine.h"
+#include "Public\Utilits.h"
 
 namespace sixday
 {

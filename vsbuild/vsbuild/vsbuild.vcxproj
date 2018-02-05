@@ -150,6 +150,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\Camera\Camera.cpp" />
+    <ClCompile Include="..\..\src\Camera\FPSCamera.cpp" />
     <ClCompile Include="..\..\src\Component\Component.cpp" />
     <ClCompile Include="..\..\src\Component\DrawableComponent.cpp" />
     <ClCompile Include="..\..\src\Public\Utilits.cpp" />
@@ -157,6 +159,8 @@
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\Camera\Camera.h" />
+    <ClInclude Include="..\..\src\Camera\FPSCamera.h" />
     <ClInclude Include="..\..\src\Component\Component.h" />
     <ClInclude Include="..\..\src\Component\DrawableComponent.h" />
     <ClInclude Include="..\..\src\Public\PublicDefine.h" />

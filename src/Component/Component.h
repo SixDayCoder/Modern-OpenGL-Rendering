@@ -19,13 +19,14 @@ namespace sixday
 		
 		public:
 			Component();
-			Component(RenderScene* pRenderScene);
+			Component(RenderScene& rRenderScene);
+			virtual ~Component();
 
 			bool Enable()const { return m_bIsEnable;  }
-			void SetEnable();
+			void SetEnable(bool bEnable);
 
 			RenderScene* GetRenderScene()const {  return m_pRenderScene;  }
-			void SetRenderScene(RenderScene* pRenderScene);
+			void SetRenderScene(RenderScene& rRenderScene);
 
 		private:
 
