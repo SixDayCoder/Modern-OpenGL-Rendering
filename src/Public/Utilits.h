@@ -39,6 +39,16 @@ namespace sixday
 			Timer(const Timer&) {}
 			Timer& operator=(const Timer&) {}
 		};
+
+
+		class Utilits
+		{
+			static double Radius2Angle(float fRadius);
+
+			static double Angle2Radius(float fAngle);
+
+		};
+
 	}
 }
 

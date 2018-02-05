@@ -45,5 +45,20 @@ namespace sixday
 			m_CurrentTime = time_type();
 			m_DeltaTime = milliseconds();
 		}
+
+
+		/*=========================================================Utlits================================================================*/
+
+		double Utilits::Radius2Angle(float fRadius)
+		{
+			return 180.0 / PI * fRadius;
+		}
+
+		double Utilits::Angle2Radius(float fAngle)
+		{
+			return PI / 180.0 * fAngle;
+		}
+
+		/*=========================================================Utlits================================================================*/
 	}
 }

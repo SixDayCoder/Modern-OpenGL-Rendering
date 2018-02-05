@@ -8,6 +8,7 @@ namespace sixday
 	namespace render
 	{
 		class RenderScene;
+		class Timer;
 
 		class Component
 		{
@@ -27,6 +28,9 @@ namespace sixday
 
 			RenderScene* GetRenderScene()const {  return m_pRenderScene;  }
 			void SetRenderScene(RenderScene& rRenderScene);
+
+			virtual void Initialize() {}
+			virtual void Update(Timer& timer) {}
 
 		private:
 

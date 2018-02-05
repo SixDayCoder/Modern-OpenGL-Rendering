@@ -10,16 +10,16 @@ namespace sixday
 	namespace render
 	{
 		class RenderScene;
+		class Timer;
 
 		class Camera : public Component
 		{
 		public:
 			Camera(RenderScene& rRenderScene);
-			Camera(RenderScene& rRenderScene, float fFieldOfView, float fAspect, float fNearPlane, float fFarPlane);
+			Camera(RenderScene& rRenderScene, float fFieldOfView, float fNearPlane, float fFarPlane);
 			virtual ~Camera();
 			
 			static const float DefaultFieldOfView;
-			static const float DefaultAspect;
 			static const float DefaultNearPlane;
 			static const float DefatultFarPlane;
 
@@ -29,7 +29,6 @@ namespace sixday
 			const glm::vec3 Right()const { return m_Right; }
 
 			float FieldOfView()const { return m_fFieldOfView; }
-			float Aspect()const { return m_fAspect; }
 			float NearPlane()const { return m_fNearPlane; }
 			float FarPlane()const { return m_fFarPlane; }
 
@@ -39,12 +38,19 @@ namespace sixday
 
 			virtual void SetPosition(float x, float y, float z);
 			virtual void SetPosition(const glm::vec3& pos);
-			
-		
+
+			virtual void Initialize()override;
+			virtual void Update(Timer& timer)override;
+
+
 		private:
+
+			void UpdateMatrix();
+			
+		protected:
+
 			float m_fFieldOfView;
-			float m_fAspect;
-			float m_fNearPlane;
+			float m_fNearPlane;  
 			float m_fFarPlane;
 
 			glm::vec3 m_Position;
@@ -54,6 +60,8 @@ namespace sixday
 
 			glm::mat4 m_ViewMatrix;
 			glm::mat4 m_ProjectionMatrix;
+
+		private:
 
 			Camera(const Camera& rhs);
 			Camera& operator=(const Camera& rhs);
