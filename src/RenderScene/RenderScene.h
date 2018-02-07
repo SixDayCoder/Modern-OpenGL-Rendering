@@ -5,6 +5,7 @@
 #include <glad\glad.h>
 #include <glfw\glfw3.h>
 #include <string>
+#include <map>
 
 namespace sixday
 {
@@ -12,6 +13,8 @@ namespace sixday
 	{
 
 		#define GLM_FORCE_RADIANS
+		
+		class Component;
 
 		class RenderScene
 		{
@@ -22,6 +25,7 @@ namespace sixday
 			uint32 m_nHeight;
 			std::string m_strTitle;
 			GLFWwindow *m_pWindow;
+			std::map<Guid, Component*> m_ComponentMap;
 
 			void CalcAspect();
 
@@ -36,6 +40,9 @@ namespace sixday
 			void SetHeight(int height);
 			const uint32 Height()const { return m_nHeight; }
 			const float Aspect()const { return m_fAspect; }
+
+			const Component& GetComponentByGuid(Guid guid)const;
+			Component& GetComponentByGuid(Guid guid);
 
 			void Update();
 		};

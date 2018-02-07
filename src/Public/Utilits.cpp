@@ -59,6 +59,12 @@ namespace sixday
 			return PI / 180.0 * fAngle;
 		}
 
+		Guid Utilits::GetNextGuid()
+		{
+			time_type now = std::chrono::time_point_cast<microseconds>(std::chrono::high_resolution_clock::now());
+			return now.time_since_epoch().count();
+		}
+
 		/*=========================================================Utlits================================================================*/
 	}
 }

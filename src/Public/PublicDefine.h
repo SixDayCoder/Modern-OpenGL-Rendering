@@ -16,7 +16,7 @@ namespace sixday
 	using uint32 = unsigned int;
 	using uint64 = unsigned long;
 	using byte = unsigned char;
-
+	using Guid = long long;
 
 	using microseconds = std::chrono::microseconds;
 	using milliseconds = std::chrono::milliseconds;

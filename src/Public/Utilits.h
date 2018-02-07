@@ -43,9 +43,13 @@ namespace sixday
 
 		class Utilits
 		{
+		public:
+
 			static double Radius2Angle(float fRadius);
 
 			static double Angle2Radius(float fAngle);
+
+			static Guid GetNextGuid();
 
 		};
 

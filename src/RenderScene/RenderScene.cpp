@@ -51,6 +51,48 @@ namespace sixday
 			CalcAspect();
 		}
 
+		const Component & RenderScene::GetComponentByGuid(Guid guid) const
+		{
+			// TODO: insert return statement here
+			auto it = m_ComponentMap.find(guid);
+			if (it != m_ComponentMap.end())
+			{
+				if (it->second == nullptr)
+				{
+					//log(invalid component)
+					return *it->second;
+				}
+				else
+				{
+					return *it->second;
+				}
+			}
+
+			//log(invalid guid)
+
+		}
+
+		Component & RenderScene::GetComponentByGuid(Guid guid)
+		{
+
+			// TODO: insert return statement here
+			auto it = m_ComponentMap.find(guid);
+			if (it != m_ComponentMap.end())
+			{
+				if (it->second == nullptr)
+				{
+					//log(invalid component)
+					return *it->second;
+				}
+				else
+				{
+					return *it->second;
+				}
+			}
+
+			//log(invalid guid)
+		}
+
 		void RenderScene::Update()
 		{
 			while (!glfwWindowShouldClose(m_pWindow))

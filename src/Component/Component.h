@@ -15,6 +15,7 @@ namespace sixday
 
 		protected:
 
+			Guid m_Guid;
 			bool m_bIsEnable;
 			RenderScene* m_pRenderScene;
 		
@@ -23,6 +24,7 @@ namespace sixday
 			Component(RenderScene& rRenderScene);
 			virtual ~Component();
 
+			Guid GetGuid() { return m_Guid; }
 			bool Enable()const { return m_bIsEnable;  }
 			void SetEnable(bool bEnable);
 
