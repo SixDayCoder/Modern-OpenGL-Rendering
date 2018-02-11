@@ -48,6 +48,9 @@
     <ClCompile Include="..\..\src\Camera\FPSCamera.cpp">
       <Filter>Camera</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\Public\Timer.cpp">
+      <Filter>Public</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\Public\Utilits.h">
@@ -70,6 +73,9 @@
     </ClInclude>
     <ClInclude Include="..\..\src\Camera\FPSCamera.h">
       <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Public\Timer.h">
+      <Filter>Public</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
