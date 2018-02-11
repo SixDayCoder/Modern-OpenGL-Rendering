@@ -5,14 +5,6 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Public">
       <UniqueIdentifier>{7da8faad-064d-45a1-923b-978d9081aaee}</UniqueIdentifier>
     </Filter>
@@ -24,6 +16,9 @@
     </Filter>
     <Filter Include="Camera">
       <UniqueIdentifier>{85089dc1-7ebb-4854-b54c-8840db850eb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{4383aff6-7c13-4c74-995f-55936505811f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -51,6 +46,9 @@
     <ClCompile Include="..\..\src\Public\Timer.cpp">
       <Filter>Public</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\Resources\Shader.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\Public\Utilits.h">
@@ -76,6 +74,9 @@
     </ClInclude>
     <ClInclude Include="..\..\src\Public\Timer.h">
       <Filter>Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Resources\Shader.h">
+      <Filter>Resources</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

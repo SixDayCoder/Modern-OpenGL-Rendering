@@ -63,6 +63,10 @@ namespace sixday
 			glm::perspective(m_fFieldOfView, m_pRenderScene->Aspect(), m_fNearPlane, m_fFarPlane);
 		}
 
+		void Camera::UpdateDirections()
+		{
+		}
+
 		Camera::Camera(const Camera & rhs)
 		{
 		}

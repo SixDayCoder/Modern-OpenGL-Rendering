@@ -46,6 +46,8 @@ namespace sixday
 		private:
 
 			void UpdateMatrix();
+
+			void UpdateDirections();
 			
 		protected:
 
