@@ -158,6 +158,7 @@
     <ClCompile Include="..\..\src\Public\Utilits.cpp" />
     <ClCompile Include="..\..\src\RenderScene\RenderScene.cpp" />
     <ClCompile Include="..\..\src\Resources\Shader.cpp" />
+    <ClCompile Include="..\..\src\Resources\Texture2D.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -170,6 +171,7 @@
     <ClInclude Include="..\..\src\Public\Utilits.h" />
     <ClInclude Include="..\..\src\RenderScene\RenderScene.h" />
     <ClInclude Include="..\..\src\Resources\Shader.h" />
+    <ClInclude Include="..\..\src\Resources\Texture2D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

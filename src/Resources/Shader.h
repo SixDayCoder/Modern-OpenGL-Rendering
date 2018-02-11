@@ -20,7 +20,6 @@ namespace sixday
 
 		uint32 ID()const { return id; }
 		
-
 		void Use() { glUseProgram(id); }
 
 		void SetBool(const std::string &name, bool value) const;

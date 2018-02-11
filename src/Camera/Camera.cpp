@@ -67,13 +67,5 @@ namespace sixday
 		{
 		}
 
-		Camera::Camera(const Camera & rhs)
-		{
-		}
-
-		Camera & Camera::operator=(const Camera & rhs)
-		{
-			return *this;
-		}
 	}
 }

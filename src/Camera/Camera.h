@@ -65,8 +65,8 @@ namespace sixday
 
 		private:
 
-			Camera(const Camera& rhs);
-			Camera& operator=(const Camera& rhs);
+			Camera(const Camera& rhs) {}
+			Camera& operator=(const Camera& rhs) {}
 
 		};
 	}
