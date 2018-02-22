@@ -33,6 +33,7 @@ namespace sixday
 
 		Camera::~Camera()
 		{
+
 		}
 		
 		void Camera::SetPosition(float x, float y, float z)
@@ -65,6 +66,7 @@ namespace sixday
 
 		void Camera::UpdateDirections()
 		{
+
 		}
 
 	}

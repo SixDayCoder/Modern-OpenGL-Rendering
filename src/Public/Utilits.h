@@ -7,7 +7,7 @@ namespace sixday
 {
 	namespace utilits
 	{
-
+		
 		class Utilits
 		{
 		public:
@@ -17,6 +17,8 @@ namespace sixday
 			static double Angle2Radius(float fAngle);
 
 			static Guid GetNextGuid();
+
+			static void Assert(bool bCondition, const char* message = nullptr);
 
 		};
 

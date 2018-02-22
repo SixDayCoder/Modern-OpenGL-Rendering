@@ -21,5 +21,15 @@ namespace sixday
 			return now.time_since_epoch().count();
 		}
 
+		void Utilits::Assert(bool bCondition, const char * message)
+		{
+			if (bCondition)
+			{
+				return;
+			}
+
+
+		}
+
 	}
 }

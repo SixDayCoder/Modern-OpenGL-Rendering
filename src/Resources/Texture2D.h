@@ -14,20 +14,29 @@ namespace sixday
 	{
 	private:
 
-		uint32 id;
-		uint32 width;
-		uint32 height;
+		uint32 m_nId;
+		uint32 m_nWidth;
+		uint32 m_nHeight;
+		bool   m_bIsGenerated;
 
 	public:
+
+		Texture2D() : 
+		m_nId(0), 
+		m_nWidth(0), 
+		m_nHeight(0), 
+		m_bIsGenerated(false)
+		{
+		}
 
 		static const GLint DefaultWrapS;
 		static const GLint DefaultWrapT;
 		static const GLint DefaultMinFilter;
 		static const GLint DefaultMaxFilter;
 
-		uint32 Id()const { return id; }
-		uint32 Width()const { return width; }
-		uint32 Height()const { return height; }
+		uint32 Id()const { return m_nId; }
+		uint32 Width()const { return m_nWidth; }
+		uint32 Height()const { return m_nHeight; }
 
 		void GenTexture(GLint nWrapS = DefaultWrapS, GLint nWrapT = DefaultWrapT, GLint nMinFilter = DefaultMinFilter, GLint nMaxFilter = DefaultMaxFilter);
 

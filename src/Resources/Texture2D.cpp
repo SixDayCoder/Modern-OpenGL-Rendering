@@ -12,8 +12,13 @@ namespace sixday
 
 	void Texture2D::GenTexture(GLint nWrapS/* = GL_REPEAT */, GLint nWrapT/* = GL_REPEAT */, GLint nMinFilter/* = GL_LINEAR */, GLint nMaxFilter/* = GL_LINEAR */)
 	{
-		glGenTextures(1, &id);
-		glBindTexture(GL_TEXTURE_2D, id);
+		if (m_bIsGenerated)
+		{
+			return;
+		}
+
+		glGenTextures(1, &m_nId);
+		glBindTexture(GL_TEXTURE_2D, m_nId);
 
 
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, nWrapS);
@@ -22,11 +27,12 @@ namespace sixday
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, nMaxFilter);
 
 		glBindTexture(GL_TEXTURE_2D, 0);
+		m_bIsGenerated = true;
 	}
 
 	void Texture2D::LoadFromFile(const char * path)
 	{
-		glBindTexture(GL_TEXTURE_2D, id);
+		glBindTexture(GL_TEXTURE_2D, m_nId);
 
 		int width, height, channels;
 		byte *data = stbi_load(path, &width, &height, &channels, 0);
@@ -37,8 +43,8 @@ namespace sixday
 			glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
 			glGenerateMipmap(GL_TEXTURE_2D);
 
-			this->width = width;
-			this->height = height;
+			m_nWidth = width;
+			m_nHeight = height;
 		}
 		else
 		{
