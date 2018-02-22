@@ -1,7 +1,7 @@
 #ifndef  SIXDAY_RENDER_SCENE_H
 #define  SIXDAY_RENDER_SCENE_H
 
-#include "Public\Utilits.h"
+#include "Public\PublicDefine.h"
 #include <glad\glad.h>
 #include <glfw\glfw3.h>
 #include <string>

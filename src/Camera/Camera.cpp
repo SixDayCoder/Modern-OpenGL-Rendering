@@ -1,6 +1,6 @@
 #include "Camera\Camera.h"
-#include "Public\Utilits.h"
 #include "RenderScene\RenderScene.h"
+#include "Utilits\MathUtilits.h"
 #include "glm\common.hpp"
 #include "glm\gtc\matrix_transform.hpp"
 #include "glm\gtc\type_ptr.hpp"
@@ -9,7 +9,7 @@ namespace sixday
 {
 	namespace render
 	{
-		const float Camera::DefaultFieldOfView = static_cast<float>(PI_DIV_4);
+		const float Camera::DefaultFieldOfView = utilits::MathUtilits::PI_DIV_4;
 		const float Camera::DefaultNearPlane = 0.1f;
 		const float Camera::DefatultFarPlane = 100.0f;
 

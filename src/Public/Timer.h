@@ -1,7 +1,7 @@
 #ifndef SIXDAY_TIMER_H
 #define SIXDAY_TIMER_H
 
-#include "Public\Utilits.h"
+#include "Public\PublicDefine.h"
 
 
 namespace sixday

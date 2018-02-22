@@ -1,7 +1,7 @@
 #ifndef SIXDAY_SHADER_H
 #define SIXDAY_SHADER_H
 
-#include "Public\Utilits.h"
+#include "Public\PublicDefine.h"
 
 #include <glm\common.hpp>
 

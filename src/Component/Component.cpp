@@ -1,6 +1,5 @@
 
 #include "Component\Component.h"
-#include "Public\Utilits.h"
 
 namespace sixday
 {
@@ -10,7 +9,7 @@ namespace sixday
 				  :m_pRenderScene(nullptr),
 				   m_bIsEnable(true)
 		{
-			m_Guid = utilits::Utilits::GetNextGuid();
+			m_Guid = GetNextGuid();
 		}
 
 		Component::Component(RenderScene& rRenderScene)
