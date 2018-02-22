@@ -13,6 +13,10 @@ namespace sixday
 		class Component
 		{
 
+		public:
+
+			static Guid GetNextGuid();
+
 		protected:
 
 			Guid m_Guid;
@@ -20,6 +24,7 @@ namespace sixday
 			RenderScene* m_pRenderScene;
 		
 		public:
+
 			Component();
 			Component(RenderScene& rRenderScene);
 			virtual ~Component();

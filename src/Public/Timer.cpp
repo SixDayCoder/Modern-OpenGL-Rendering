@@ -5,13 +5,13 @@ namespace sixday
 {
 	double Timer::DeltaTime()const
 	{
-		return static_cast<double>(m_DeltaTime.count() / DOUBLE_ONE_MILLION);
+		return static_cast<double>(m_DeltaTime.count() / 1000000.0f);
 	}
 
 	double Timer::ElapsedTime()const
 	{
 		microseconds tp = m_CurrentTime.time_since_epoch() - m_StartTime.time_since_epoch();
-		return static_cast<double>(tp.count() / DOUBLE_ONE_MILLION);
+		return static_cast<double>(tp.count() / 1000000.0f);
 	}
 
 	double Timer::Frequency()const

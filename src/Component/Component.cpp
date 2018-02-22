@@ -17,6 +17,7 @@ namespace sixday
 			      :m_pRenderScene(&rRenderScene),
 			       m_bIsEnable(true)
 		{
+
 		}
 
 		Component::~Component()
@@ -37,8 +38,15 @@ namespace sixday
 			m_pRenderScene = &rRenderScene;
 		}
 
+		Guid Component::GetNextGuid()
+		{
+			time_type now = std::chrono::time_point_cast<microseconds>(std::chrono::high_resolution_clock::now());
+			return now.time_since_epoch().count();
+		}
+
 		Component::Component(const Component & rhs)
 		{
+
 		}
 
 		Component & Component::operator=(const Component & rhs)
