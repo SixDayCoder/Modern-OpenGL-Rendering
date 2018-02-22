@@ -10,7 +10,6 @@ namespace sixday
 	namespace render
 	{
 		class RenderScene;
-		class Timer;
 
 		class Camera : public Component
 		{
@@ -40,7 +39,7 @@ namespace sixday
 			virtual void SetPosition(const glm::vec3& pos);
 
 			virtual void Initialize()override;
-			virtual void Update(Timer& timer)override;
+			virtual void Update(float fDeltaTime)override;
 
 
 		private:

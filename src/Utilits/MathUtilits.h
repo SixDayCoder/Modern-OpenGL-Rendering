@@ -1,5 +1,5 @@
-#ifndef SIXDAY_MATHUTILITS_H
-#define SIXDAY_MATHUTILITS_H
+#ifndef SIXDAY_MATH_UTILITS_H_
+#define SIXDAY_MATH_UTILITS_H_
 
 
 #include "Public\PublicDefine.h"

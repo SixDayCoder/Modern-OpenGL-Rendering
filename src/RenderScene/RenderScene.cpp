@@ -1,4 +1,5 @@
 #include "RenderScene.h"
+#include "Component\Component.h"
 #include <iostream>
 
 namespace sixday
@@ -51,6 +52,16 @@ namespace sixday
 			CalcAspect();
 		}
 
+		void RenderScene::AddComponent(Guid guid, Component & rComponent)
+		{
+			if (m_ComponentMap.find(guid) != m_ComponentMap.end())
+			{
+				return;
+			}		
+			rComponent.SetRenderScene(*this);
+			m_ComponentMap.insert(std::make_pair(guid, &rComponent));
+		}
+
 		const Component & RenderScene::GetComponentByGuid(Guid guid) const
 		{
 			// TODO: insert return statement here
@@ -93,10 +104,23 @@ namespace sixday
 			//log(invalid guid)
 		}
 
-		void RenderScene::Update()
+		void RenderScene::Exec()
 		{
+			clock.Start();
 			while (!glfwWindowShouldClose(m_pWindow))
 			{
+
+				float fEplasedTime = static_cast<float>(clock.ElapsedTime());
+				
+				for (ComponentMap::iterator it = m_ComponentMap.begin(); it != m_ComponentMap.end(); ++it)
+				{
+					Component* component = it->second;
+					if (component->Enable())
+					{
+						component->Update(fEplasedTime);
+					}
+				}
+
 				glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 				glClear(GL_COLOR_BUFFER_BIT);
 

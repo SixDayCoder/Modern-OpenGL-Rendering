@@ -53,9 +53,13 @@ namespace sixday
 			m_fFarPlane = DefatultFarPlane;
 		}
 
-		void Camera::Update(Timer& timer)
+		void Camera::Update(float fDeltaTime)
 		{
+			//根据deltatime调整相机的位置,角度
+			UpdateDirections();
 
+			//根据当前相机的位置、角度等调整ViewMatirx和ProjectionMatrix
+			UpdateMatrix();
 		}
 
 		void Camera::UpdateMatrix()

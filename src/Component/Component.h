@@ -8,7 +8,6 @@ namespace sixday
 	namespace render
 	{
 		class RenderScene;
-		class Timer;
 
 		class Component
 		{
@@ -37,7 +36,7 @@ namespace sixday
 			void SetRenderScene(RenderScene& rRenderScene);
 
 			virtual void Initialize() {}
-			virtual void Update(Timer& timer) {}
+			virtual void Update(float fDeltaTime) {}
 
 		private:
 

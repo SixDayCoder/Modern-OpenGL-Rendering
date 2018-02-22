@@ -55,6 +55,9 @@
     <ClCompile Include="..\..\src\Utilits\MathUtilits.cpp">
       <Filter>Utilits</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\Utilits\FileUtilits.cpp">
+      <Filter>Utilits</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\Component\Component.h">
@@ -85,6 +88,9 @@
       <Filter>Resources</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\Utilits\MathUtilits.h">
+      <Filter>Utilits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Utilits\FileUtilits.h">
       <Filter>Utilits</Filter>
     </ClInclude>
   </ItemGroup>
