@@ -1,5 +1,6 @@
 ﻿
-#include "FileUtilits.h"
+#include "Utilits\FileUtilits.h"
+#include <iostream>
 #include <fstream>
 #include <filesystem>
 
@@ -29,10 +30,7 @@ namespace sixday
 		void FileUtiltis::RemoveDir(const std::string & strAbsoluteDirPath)
 		{
 			std::tr2::sys::path path(strAbsoluteDirPath);
-			if (!std::tr2::sys::remove_all(path))
-			{
-				//log
-			}
+			std::tr2::sys::remove_all(path);
 		}
 
 		void FileUtiltis::CreateNewFile(const std::string & strFullFilePath)
@@ -46,10 +44,7 @@ namespace sixday
 		void FileUtiltis::RemoveFile(const std::string & strFullFilePath)
 		{
 			std::tr2::sys::path path(strFullFilePath);
-			if (!std::tr2::sys::remove(path))
-			{
-				//log
-			}
+			std::tr2::sys::remove(path);
 		}
 
 	}

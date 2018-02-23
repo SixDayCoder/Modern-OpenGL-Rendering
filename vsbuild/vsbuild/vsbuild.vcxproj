@@ -159,7 +159,6 @@
     <ClCompile Include="..\..\src\Resources\Shader.cpp" />
     <ClCompile Include="..\..\src\Resources\Texture2D.cpp" />
     <ClCompile Include="..\..\src\Utilits\FileUtilits.cpp" />
-    <ClCompile Include="..\..\src\Utilits\LogUtilits.cpp" />
     <ClCompile Include="..\..\src\Utilits\MathUtilits.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
@@ -174,7 +173,6 @@
     <ClInclude Include="..\..\src\Resources\Shader.h" />
     <ClInclude Include="..\..\src\Resources\Texture2D.h" />
     <ClInclude Include="..\..\src\Utilits\FileUtilits.h" />
-    <ClInclude Include="..\..\src\Utilits\LogUtilits.h" />
     <ClInclude Include="..\..\src\Utilits\MathUtilits.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

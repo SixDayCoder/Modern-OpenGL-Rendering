@@ -1,5 +1,6 @@
 #include "RenderScene.h"
 #include "Component\Component.h"
+#include <cassert>
 #include <iostream>
 
 namespace sixday
@@ -23,20 +24,12 @@ namespace sixday
 
 			m_pWindow = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
 
-			if (m_pWindow == nullptr)
-			{
-				std::cout << "Faild to create GLFW window" << std::endl;
-				glfwTerminate();
-			}
+			assert(m_pWindow, "Failed to create GLFW window");
 
 			glfwMakeContextCurrent(m_pWindow);
 
-			if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-			{
-				std::cout << "Faild to initailize GLAD" << std::endl;
-				glfwTerminate();
-			}
-
+			assert(!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress), "Failed to initailize GLAD");
+	
 			CalcAspect();
 		}
 
@@ -64,44 +57,24 @@ namespace sixday
 
 		const Component & RenderScene::GetComponentByGuid(Guid guid) const
 		{
-			// TODO: insert return statement here
 			auto it = m_ComponentMap.find(guid);
 			if (it != m_ComponentMap.end())
 			{
-				if (it->second == nullptr)
-				{
-					//log(invalid component)
-					return *it->second;
-				}
-				else
-				{
-					return *it->second;
-				}
+				assert(it->second, "invalid component");
+				return *it->second;
 			}
-
-			//log(invalid guid)
-
+			assert(false, "can't find any component, invalid guid");
 		}
 
 		Component & RenderScene::GetComponentByGuid(Guid guid)
 		{
-
-			// TODO: insert return statement here
 			auto it = m_ComponentMap.find(guid);
 			if (it != m_ComponentMap.end())
 			{
-				if (it->second == nullptr)
-				{
-					//log(invalid component)
-					return *it->second;
-				}
-				else
-				{
-					return *it->second;
-				}
+				assert(it->second, "invalid component");
+				return *it->second;
 			}
-
-			//log(invalid guid)
+			assert(false, "can't find any component, invalid guid");
 		}
 
 		void RenderScene::Exec()
