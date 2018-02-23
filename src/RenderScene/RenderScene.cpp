@@ -24,11 +24,11 @@ namespace sixday
 
 			m_pWindow = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
 
-			assert(m_pWindow, "Failed to create GLFW window");
+			assert(m_pWindow);
 
 			glfwMakeContextCurrent(m_pWindow);
 
-			assert(!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress), "Failed to initailize GLAD");
+			assert(gladLoadGLLoader((GLADloadproc)glfwGetProcAddress) > 0);
 	
 			CalcAspect();
 		}
@@ -60,10 +60,10 @@ namespace sixday
 			auto it = m_ComponentMap.find(guid);
 			if (it != m_ComponentMap.end())
 			{
-				assert(it->second, "invalid component");
+				assert(it->second);
 				return *it->second;
 			}
-			assert(false, "can't find any component, invalid guid");
+			assert(false);
 		}
 
 		Component & RenderScene::GetComponentByGuid(Guid guid)
@@ -71,10 +71,10 @@ namespace sixday
 			auto it = m_ComponentMap.find(guid);
 			if (it != m_ComponentMap.end())
 			{
-				assert(it->second, "invalid component");
+				assert(it->second);
 				return *it->second;
 			}
-			assert(false, "can't find any component, invalid guid");
+			assert(false);
 		}
 
 		void RenderScene::Exec()
