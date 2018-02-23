@@ -1,5 +1,33 @@
 ﻿  Source.cpp
+  MathUtilits.cpp
+  LogUtilits.cpp
   FileUtilits.cpp
+  Texture2D.cpp
+  Shader.cpp
+  RenderScene.cpp
+  Timer.cpp
+  DrawableComponent.cpp
+  Component.cpp
+  FPSCamera.cpp
+  Camera.cpp
   Generating Code...
+c:\users\administrator\desktop\opengl\modern-opengl-rendering\src\renderscene\renderscene.cpp(84): warning C4715: 'sixday::render::RenderScene::GetComponentByGuid': not all control paths return a value
+c:\users\administrator\desktop\opengl\modern-opengl-rendering\src\renderscene\renderscene.cpp(105): warning C4715: 'sixday::render::RenderScene::GetComponentByGuid': not all control paths return a value
+glfw3.lib(context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(context.obj)' or at 'C:\Users\Administrator\Desktop\OpenGL\Modern-OpenGL-Rendering\vsbuild\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(init.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(init.obj)' or at 'C:\Users\Administrator\Desktop\OpenGL\Modern-OpenGL-Rendering\vsbuild\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(input.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(input.obj)' or at 'C:\Users\Administrator\Desktop\OpenGL\Modern-OpenGL-Rendering\vsbuild\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(monitor.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(monitor.obj)' or at 'C:\Users\Administrator\Desktop\OpenGL\Modern-OpenGL-Rendering\vsbuild\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(vulkan.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(vulkan.obj)' or at 'C:\Users\Administrator\Desktop\OpenGL\Modern-OpenGL-Rendering\vsbuild\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(window.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(window.obj)' or at 'C:\Users\Administrator\Desktop\OpenGL\Modern-OpenGL-Rendering\vsbuild\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(win32_init.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_init.obj)' or at 'C:\Users\Administrator\Desktop\OpenGL\Modern-OpenGL-Rendering\vsbuild\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(win32_joystick.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_joystick.obj)' or at 'C:\Users\Administrator\Desktop\OpenGL\Modern-OpenGL-Rendering\vsbuild\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(win32_monitor.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_monitor.obj)' or at 'C:\Users\Administrator\Desktop\OpenGL\Modern-OpenGL-Rendering\vsbuild\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(win32_time.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_time.obj)' or at 'C:\Users\Administrator\Desktop\OpenGL\Modern-OpenGL-Rendering\vsbuild\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(win32_tls.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_tls.obj)' or at 'C:\Users\Administrator\Desktop\OpenGL\Modern-OpenGL-Rendering\vsbuild\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(win32_window.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_window.obj)' or at 'C:\Users\Administrator\Desktop\OpenGL\Modern-OpenGL-Rendering\vsbuild\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(wgl_context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(wgl_context.obj)' or at 'C:\Users\Administrator\Desktop\OpenGL\Modern-OpenGL-Rendering\vsbuild\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(egl_context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(egl_context.obj)' or at 'C:\Users\Administrator\Desktop\OpenGL\Modern-OpenGL-Rendering\vsbuild\Debug\glfw.pdb'; linking object as if no debug info
+glad.lib(glad.obj) : warning LNK4099: PDB 'glad.pdb' was not found with 'glad.lib(glad.obj)' or at 'C:\Users\Administrator\Desktop\OpenGL\Modern-OpenGL-Rendering\vsbuild\Debug\glad.pdb'; linking object as if no debug info
+stb_image.lib(stb_image.obj) : warning LNK4099: PDB 'stb_image.pdb' was not found with 'stb_image.lib(stb_image.obj)' or at 'C:\Users\Administrator\Desktop\OpenGL\Modern-OpenGL-Rendering\vsbuild\Debug\stb_image.pdb'; linking object as if no debug info
   vsbuild.vcxproj -> C:\Users\Administrator\Desktop\OpenGL\Modern-OpenGL-Rendering\vsbuild\Debug\vsbuild.exe
   vsbuild.vcxproj -> C:\Users\Administrator\Desktop\OpenGL\Modern-OpenGL-Rendering\vsbuild\Debug\vsbuild.pdb (Full PDB)
