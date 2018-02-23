@@ -35,7 +35,7 @@ namespace sixday
 			void SetModelMatrix(const glm::mat4& model) { m_Model = model; }
 			glm::mat4 GetModleMatrix()const { return m_Model; }
 
-			virtual void BindObject() {};
+			virtual void BindData() {};
 
 			virtual void Draw(Shader& shader) {}
 

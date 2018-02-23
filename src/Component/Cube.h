@@ -13,9 +13,13 @@ namespace sixday
 		{
 		public:
 
-			Cube() : DrawableComponent(){}
+			Cube();
 
 			Cube(RenderScene& rRenderScene);
+
+			virtual void BindData()override;
+
+			virtual void Initialize()override;
 
 			virtual void Draw(Shader& shader) override;
 		};
