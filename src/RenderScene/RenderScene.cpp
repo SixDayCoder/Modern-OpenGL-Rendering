@@ -1,5 +1,6 @@
 #include "RenderScene.h"
 #include "Component\Component.h"
+#include "Component\DrawableComponent.h"
 #include <cassert>
 #include <iostream>
 
@@ -97,6 +98,15 @@ namespace sixday
 				glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 				glClear(GL_COLOR_BUFFER_BIT);
 
+				for (ComponentMap::iterator it = m_ComponentMap.begin(); it != m_ComponentMap.end(); it++)
+				{
+					Component* component = it->second;
+					if (component->Enable() && component->IsDrawableComponent())
+					{
+						DrawableComponent* dComponent = dynamic_cast<DrawableComponent*>(component);
+						//dComponent->Draw();
+					}
+				}
 
 				glfwSwapBuffers(m_pWindow);
 				glfwPollEvents();

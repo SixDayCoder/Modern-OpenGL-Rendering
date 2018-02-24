@@ -36,6 +36,9 @@ namespace sixday
 
 			m_IsBindedData = false;
 
+			m_Vertices.clear();
+			m_Indices.clear();
+
 		}
 		void DrawableComponent::UpdateModelMatrix()
 		{

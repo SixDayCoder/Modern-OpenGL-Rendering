@@ -23,6 +23,9 @@
     <Filter Include="Utilits">
       <UniqueIdentifier>{6c9208d7-13f4-43fa-9e63-b6941246f401}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Structure">
+      <UniqueIdentifier>{0b86c946-103b-4356-9c1a-b6446fae0dc8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -98,6 +101,9 @@
     </ClInclude>
     <ClInclude Include="..\..\src\Component\Cube.h">
       <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Structure\Vertex.h">
+      <Filter>Structure</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

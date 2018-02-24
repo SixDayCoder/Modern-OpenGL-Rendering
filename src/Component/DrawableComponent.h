@@ -2,8 +2,10 @@
 #define SIXDAY_DRAWABLE_COMPONENT_H
 
 #include "Component\Component.h"
+#include "Structure\Vertex.h"
 #include <glm\common.hpp>
 #include <glm\gtc\type_ptr.hpp>
+#include <vector>
 
 namespace sixday
 {
@@ -35,9 +37,12 @@ namespace sixday
 			void SetModelMatrix(const glm::mat4& model) { m_Model = model; }
 			glm::mat4 GetModleMatrix()const { return m_Model; }
 
+
 			virtual void BindData() {};
 
 			virtual void Draw(Shader& shader) {}
+
+			virtual bool IsDrawableComponent()override { return true; }
 
 			virtual void Update(float fEplasedTime) override;
 
@@ -56,6 +61,9 @@ namespace sixday
 			glm::mat4 m_Model;
 
 			bool m_IsBindedData;
+
+			std::vector<Vertex> m_Vertices;
+			std::vector<uint32> m_Indices;
 
 		private:
 

@@ -38,6 +38,8 @@ namespace sixday
 			virtual void Initialize() {}
 			virtual void Update(float fDeltaTime) {}
 
+			virtual bool IsDrawableComponent() { return false; }
+
 		private:
 
 			Component(const Component& rhs);
