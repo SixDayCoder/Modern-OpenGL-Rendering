@@ -11,38 +11,40 @@
 
 namespace sixday
 {
-
-	class Shader
+	namespace render
 	{
-	public:
+		class Shader
+		{
+		public:
 
-		Shader(const char* vertexPath, const char* fragmentPath);
+			Shader(const char* vertexPath, const char* fragmentPath);
 
-		uint32 ID()const { return id; }
-		
-		void Use() { glUseProgram(id); }
+			uint32 ID()const { return id; }
 
-		void SetBool(const std::string &name, bool value) const;
+			void Use() { glUseProgram(id); }
 
-		void SetInt(const std::string &name, int value) const;
+			void SetBool(const std::string &name, bool value) const;
 
-		void SetFloat(const std::string &name, float value) const;
+			void SetInt(const std::string &name, int value) const;
 
-		void SetFloat4(const std::string& name, float x, float y, float z, float w);
+			void SetFloat(const std::string &name, float value) const;
 
-		void SetMatrix4(const std::string& name, glm::mat4& mat);
+			void SetFloat4(const std::string& name, float x, float y, float z, float w);
 
-		void SetVec2(const std::string& name, glm::vec2& vec);
+			void SetMatrix4(const std::string& name, glm::mat4& mat);
 
-		void SetVec3(const std::string& name, glm::vec3& vec);
+			void SetVec2(const std::string& name, glm::vec2& vec);
 
-	private:
+			void SetVec3(const std::string& name, glm::vec3& vec);
 
-		uint32 id;
+		private:
 
-		void CheckCompileError(uint32 shader, std::string type);
+			uint32 id;
 
-	};
+			void CheckCompileError(uint32 shader, std::string type);
+
+		};
+	}
 }
 
 
