@@ -17,11 +17,13 @@ namespace sixday
 
 			Cube(RenderScene& rRenderScene);
 
-			virtual void BindData()override;
-
 			virtual void Initialize()override;
 
 			virtual void Draw(Shader& shader) override;
+
+		private:
+
+			virtual void BindData()override;
 		};
 	}
 }

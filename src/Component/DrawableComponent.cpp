@@ -9,12 +9,10 @@ namespace sixday
 	{
 		DrawableComponent::DrawableComponent() : Component()
 		{
-			Initialize();
 		}
 
 		DrawableComponent::DrawableComponent(RenderScene & rRenderScene) : Component(rRenderScene)
 		{
-			Initialize();
 		}
 
 		void DrawableComponent::Update(float fEplasedTime)

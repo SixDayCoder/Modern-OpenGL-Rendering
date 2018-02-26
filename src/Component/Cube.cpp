@@ -8,12 +8,10 @@ namespace sixday
 	{
 		Cube::Cube() : DrawableComponent()
 		{
-			Initialize();
 		}
 
 		Cube::Cube(RenderScene & rRenderScene) : DrawableComponent(rRenderScene)
 		{
-			Initialize();
 		}
 
 		void Cube::BindData()
@@ -89,6 +87,8 @@ namespace sixday
 				7, 6, 2, 
 				7, 2, 3
 			};
+
+			BindData();
 
 		}
 

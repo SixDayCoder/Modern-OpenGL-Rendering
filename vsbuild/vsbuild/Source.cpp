@@ -11,6 +11,7 @@ int main()
 
 
 	Cube cube;
+	cube.Initialize();
 	scene.AddComponent(cube.GetGuid(), cube);
 
 	scene.Exec();
