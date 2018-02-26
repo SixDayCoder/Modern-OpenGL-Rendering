@@ -9,6 +9,11 @@ namespace sixday
 {
 	namespace utilits
 	{
+
+		const std::string FileUtiltis::ShaderRoot = std::tr2::sys::current_path().parent_path().parent_path().append("\\resources\\shader\\").string();
+
+		const std::string FileUtiltis::Texture2DRoot = std::tr2::sys::current_path().parent_path().parent_path().append("\\resources\\image\\").string();
+
 		std::string FileUtiltis::GetCurrentDir()
 		{
 			std::tr2::sys::path  path = std::tr2::sys::current_path();

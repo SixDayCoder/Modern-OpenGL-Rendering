@@ -90,7 +90,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\src;$(SolutionDir)..\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\src;$(SolutionDir)..\external\include;$(SolutionDir)..\resources\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -161,6 +161,7 @@
     <ClCompile Include="..\..\src\Resources\Texture2D.cpp" />
     <ClCompile Include="..\..\src\Utilits\FileUtilits.cpp" />
     <ClCompile Include="..\..\src\Utilits\MathUtilits.cpp" />
+    <ClCompile Include="..\..\src\Utilits\ResourcesUtilits.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -177,6 +178,7 @@
     <ClInclude Include="..\..\src\Structure\Vertex.h" />
     <ClInclude Include="..\..\src\Utilits\FileUtilits.h" />
     <ClInclude Include="..\..\src\Utilits\MathUtilits.h" />
+    <ClInclude Include="..\..\src\Utilits\ResourcesUtilits.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

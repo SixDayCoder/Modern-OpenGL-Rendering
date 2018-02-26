@@ -34,6 +34,11 @@ namespace sixday
 
 		void Texture2D::LoadFromFile(const char * path)
 		{
+			if (!m_bIsGenerated)
+			{
+				GenTexture();
+			}
+
 			glBindTexture(GL_TEXTURE_2D, m_nId);
 
 			int width, height, channels;

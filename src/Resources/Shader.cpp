@@ -13,15 +13,18 @@ namespace sixday
 {
 	namespace render
 	{
-		Shader::Shader(const char* vertexPath, const char* fragmentPath)
+		Shader::Shader(const char* vertexPath, const char* fragmentPath, const char* geometoryPath)
 		{
 			std::ifstream vShaderFile;
 			std::ifstream fShaderFile;
+			std::ifstream gShaderFile;
 			std::string vShaderCode;
 			std::string fShaderCode;
+			std::string gShaderCode;
 
 			vShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
 			fShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+			gShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
 
 			try
 			{
@@ -44,7 +47,7 @@ namespace sixday
 				std::cout << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ" << std::endl;
 			}
 
-			uint32 vertex, fragment;
+			uint32 vertex, fragment, geometry;
 			const char* vshader = vShaderCode.c_str();
 			const char* fshader = fShaderCode.c_str();
 
@@ -61,12 +64,41 @@ namespace sixday
 			id = glCreateProgram();
 			glAttachShader(id, vertex);
 			glAttachShader(id, fragment);
-			glLinkProgram(id);
+			
 
+			if (geometoryPath != nullptr)
+			{
+				try
+				{
+					gShaderFile.open(geometoryPath);
+					std::stringstream gstream;
+					gstream << gShaderFile.rdbuf();
+					gShaderFile.close();
+				}
+				catch (const std::ifstream::failure&)
+				{
+					std::cout << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ" << std::endl;
+				}
+
+				const char* gshader = gShaderCode.c_str();
+				geometry = glCreateShader(GL_GEOMETRY_SHADER);
+				glShaderSource(geometry, 1, &gshader, nullptr);
+
+				glCompileShader(geometry);
+				CheckCompileError(geometry, "Geometry Shader");
+
+				glAttachShader(id, geometry);
+			}
+
+			glLinkProgram(id);
 			CheckCompileError(id, "Shader Program");
 
 			glDeleteShader(vertex);
 			glDeleteShader(fragment);
+			if (geometoryPath != nullptr)
+			{
+				glDeleteShader(geometry);
+			}
 		}
 
 		void Shader::SetBool(const std::string & name, bool value) const

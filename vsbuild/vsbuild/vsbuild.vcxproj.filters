@@ -64,6 +64,9 @@
     <ClCompile Include="..\..\src\Component\Cube.cpp">
       <Filter>Component</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\Utilits\ResourcesUtilits.cpp">
+      <Filter>Utilits</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\Component\Component.h">
@@ -104,6 +107,9 @@
     </ClInclude>
     <ClInclude Include="..\..\src\Structure\Vertex.h">
       <Filter>Structure</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Utilits\ResourcesUtilits.h">
+      <Filter>Utilits</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -17,7 +17,7 @@ namespace sixday
 		{
 		public:
 
-			Shader(const char* vertexPath, const char* fragmentPath);
+			Shader(const char* vertexPath, const char* fragmentPath, const char* geometoryPath = nullptr);
 
 			uint32 ID()const { return id; }
 

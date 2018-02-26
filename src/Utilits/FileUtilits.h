@@ -30,6 +30,10 @@ namespace sixday
 			//É¾³ýÎÄ¼þ
 			static void RemoveFile(const std::string& strFullFilePath);
 
+			static const std::string ShaderRoot;
+
+			static const std::string Texture2DRoot;
+
 		};
 	}
 }

@@ -1,18 +1,3 @@
 ﻿  Source.cpp
-  RenderScene.cpp
-  DrawableComponent.cpp
-  Cube.cpp
-  Generating Code...
-c:\users\administrator\desktop\opengl\modern-opengl-rendering\src\renderscene\renderscene.cpp(68): warning C4715: 'sixday::render::RenderScene::GetComponentByGuid': not all control paths return a value
-c:\users\administrator\desktop\opengl\modern-opengl-rendering\src\renderscene\renderscene.cpp(79): warning C4715: 'sixday::render::RenderScene::GetComponentByGuid': not all control paths return a value
-  Skipping... (no relevant changes detected)
-  MathUtilits.cpp
-  FileUtilits.cpp
-  Texture2D.cpp
-  Shader.cpp
-  Timer.cpp
-  Component.cpp
-  FPSCamera.cpp
-  Camera.cpp
   vsbuild.vcxproj -> C:\Users\Administrator\Desktop\OpenGL\Modern-OpenGL-Rendering\vsbuild\Debug\vsbuild.exe
   vsbuild.vcxproj -> C:\Users\Administrator\Desktop\OpenGL\Modern-OpenGL-Rendering\vsbuild\Debug\vsbuild.pdb (Full PDB)
