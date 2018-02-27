@@ -19,7 +19,8 @@ namespace sixday
 				m_fNearPlane(DefaultNearPlane),
 				m_fFarPlane(DefatultFarPlane)
 		{
-
+			m_pRenderScene = &rRenderScene;
+			rRenderScene.SetCamera(this);
 		}
 
 		Camera::Camera(RenderScene & rRenderScene, float fFieldOfView, float fNearPlane, float fFarPlane)
@@ -28,7 +29,8 @@ namespace sixday
 				m_fNearPlane(fNearPlane),
 				m_fFarPlane(fFarPlane)
 		{
-
+			m_pRenderScene = &rRenderScene;
+			rRenderScene.SetCamera(this);
 		}
 
 		Camera::~Camera()
@@ -48,9 +50,8 @@ namespace sixday
 
 		void Camera::Initialize()
 		{
-			m_fFieldOfView = DefaultFieldOfView;
-			m_fNearPlane = DefaultNearPlane;
-			m_fFarPlane = DefatultFarPlane;
+			Component::Initialize();
+
 		}
 
 		void Camera::Update(float fDeltaTime)

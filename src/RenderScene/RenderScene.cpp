@@ -1,6 +1,8 @@
 #include "RenderScene.h"
 #include "Component\Component.h"
 #include "Component\DrawableComponent.h"
+#include "Camera\Camera.h"
+#include "Utilits\ResourcesUtilits.h"
 #include <cassert>
 #include <iostream>
 
@@ -44,6 +46,12 @@ namespace sixday
 		{
 			m_nHeight = height;
 			CalcAspect();
+		}
+
+		void RenderScene::SetCamera(Camera * camera)
+		{
+			assert(camera);
+			m_pCamera = camera;
 		}
 
 		void RenderScene::AddComponent(Guid guid, Component & rComponent)
@@ -95,8 +103,13 @@ namespace sixday
 					}
 				}
 
+				m_pCamera->Update(fEplasedTime);
+				m_pCamera->ViewMatrix();
+				m_pCamera->ProjectionMatrix();
+
+				glEnable(GL_DEPTH);
 				glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
-				glClear(GL_COLOR_BUFFER_BIT);
+				glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 				for (ComponentMap::iterator it = m_ComponentMap.begin(); it != m_ComponentMap.end(); it++)
 				{
@@ -104,7 +117,11 @@ namespace sixday
 					if (component->Enable() && component->IsDrawableComponent())
 					{
 						DrawableComponent* dComponent = dynamic_cast<DrawableComponent*>(component);
-						//dComponent->Draw();
+						Shader shader = sixday::utilits::ResourcesUtilits::GetShader("basic_cube_shader");
+						shader.Use();
+						shader.SetMatrix4("view", m_pCamera->ViewMatrix());
+						shader.SetMatrix4("projection", m_pCamera->ProjectionMatrix());
+						dComponent->Draw(shader);
 					}
 				}
 

@@ -16,6 +16,7 @@ namespace sixday
 		#define GLM_FORCE_RADIANS
 		
 		class Component;
+		class Camera;
 
 		class RenderScene
 		{
@@ -25,11 +26,14 @@ namespace sixday
 
 			Timer clock;
 
+			GLFWwindow *m_pWindow;
+			Camera* m_pCamera;
+
 			float  m_fAspect;
 			uint32 m_nWidth;
 			uint32 m_nHeight;
 			std::string m_strTitle;
-			GLFWwindow *m_pWindow;
+			
 			ComponentMap m_ComponentMap;
 
 			void CalcAspect();
@@ -46,6 +50,9 @@ namespace sixday
 
 			void SetHeight(int height);
 			const uint32 Height()const { return m_nHeight; }
+
+			void SetCamera(Camera* camera);
+			const Camera* GetCamera()const { return m_pCamera; }
 
 			const float Aspect()const { return m_fAspect; }
 

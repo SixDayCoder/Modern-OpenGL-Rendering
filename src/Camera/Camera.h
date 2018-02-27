@@ -42,11 +42,11 @@ namespace sixday
 			virtual void Update(float fDeltaTime)override;
 
 
-		private:
+		protected:
 
-			void UpdateMatrix();
+			virtual void UpdateMatrix();
 
-			void UpdateDirections();
+			virtual void UpdateDirections();
 			
 		protected:
 
@@ -61,6 +61,8 @@ namespace sixday
 
 			glm::mat4 m_ViewMatrix;
 			glm::mat4 m_ProjectionMatrix;
+
+			RenderScene* m_pRenderScene;
 
 		private:
 
