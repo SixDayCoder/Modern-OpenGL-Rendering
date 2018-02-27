@@ -34,6 +34,11 @@ namespace sixday
 			assert(gladLoadGLLoader((GLADloadproc)glfwGetProcAddress) > 0);
 	
 			CalcAspect();
+
+			Mouse::SetWindow(m_pWindow);
+			Mouse::ListenMouseMoveEvent();
+
+			glfwSetInputMode(m_pWindow, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 		}
 
 		void RenderScene::SetWidth(int width)
@@ -91,7 +96,6 @@ namespace sixday
 			clock.Start();
 			while (!glfwWindowShouldClose(m_pWindow))
 			{
-
 				float fEplasedTime = static_cast<float>(clock.ElapsedTime());
 				
 				for (ComponentMap::iterator it = m_ComponentMap.begin(); it != m_ComponentMap.end(); ++it)

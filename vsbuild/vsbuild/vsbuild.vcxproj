@@ -156,6 +156,8 @@
     <ClCompile Include="..\..\src\Component\Cube.cpp" />
     <ClCompile Include="..\..\src\Component\DrawableComponent.cpp" />
     <ClCompile Include="..\..\src\Public\Timer.cpp" />
+    <ClCompile Include="..\..\src\RenderScene\Keyboard.cpp" />
+    <ClCompile Include="..\..\src\RenderScene\Mouse.cpp" />
     <ClCompile Include="..\..\src\RenderScene\RenderScene.cpp" />
     <ClCompile Include="..\..\src\Resources\Shader.cpp" />
     <ClCompile Include="..\..\src\Resources\Texture2D.cpp" />
@@ -172,6 +174,8 @@
     <ClInclude Include="..\..\src\Component\DrawableComponent.h" />
     <ClInclude Include="..\..\src\Public\PublicDefine.h" />
     <ClInclude Include="..\..\src\Public\Timer.h" />
+    <ClInclude Include="..\..\src\RenderScene\Keyboard.h" />
+    <ClInclude Include="..\..\src\RenderScene\Mouse.h" />
     <ClInclude Include="..\..\src\RenderScene\RenderScene.h" />
     <ClInclude Include="..\..\src\Resources\Shader.h" />
     <ClInclude Include="..\..\src\Resources\Texture2D.h" />

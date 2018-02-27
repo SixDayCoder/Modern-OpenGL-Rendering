@@ -67,6 +67,12 @@
     <ClCompile Include="..\..\src\Utilits\ResourcesUtilits.cpp">
       <Filter>Utilits</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\RenderScene\Keyboard.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\RenderScene\Mouse.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\Component\Component.h">
@@ -110,6 +116,12 @@
     </ClInclude>
     <ClInclude Include="..\..\src\Utilits\ResourcesUtilits.h">
       <Filter>Utilits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\RenderScene\Keyboard.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\RenderScene\Mouse.h">
+      <Filter>Scene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -3,6 +3,7 @@
 
 #include "Public\PublicDefine.h"
 #include "Public\Timer.h"
+#include "RenderScene\Mouse.h"
 #include <glad\glad.h>
 #include <glfw\glfw3.h>
 #include <string>
