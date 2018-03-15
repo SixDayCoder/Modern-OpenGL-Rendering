@@ -58,8 +58,7 @@ namespace sixday
 			const float Aspect()const { return m_fAspect; }
 
 			void AddComponent(Guid guid, Component& rComponent);
-			const Component& GetComponentByGuid(Guid guid)const;
-			Component& GetComponentByGuid(Guid guid);
+			const Component* GetComponentByGuid(Guid guid)const;
 
 			void Exec();
 		};

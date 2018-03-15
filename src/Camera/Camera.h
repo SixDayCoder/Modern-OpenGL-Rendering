@@ -14,8 +14,8 @@ namespace sixday
 		class Camera : public Component
 		{
 		public:
-			Camera(RenderScene& rRenderScene);
-			Camera(RenderScene& rRenderScene, float fFieldOfView, float fNearPlane, float fFarPlane);
+			Camera(const glm::vec3& pos, const glm::vec3& worldUp);
+			Camera(const glm::vec3& pos, const glm::vec3& worldUp,float fFieldOfView, float fNearPlane, float fFarPlane);
 			virtual ~Camera();
 			
 			static const float DefaultFieldOfView;
@@ -41,6 +41,11 @@ namespace sixday
 			virtual void Initialize()override;
 			virtual void Update(float fDeltaTime)override;
 
+			void SetFileldOfView(float fFieldOfView) { m_fFieldOfView = fFieldOfView; }
+			void SetNearPlane(float fNearPlane) { m_fNearPlane = fNearPlane; }
+			void SetFarPlane(float fFarPlane) { m_fFarPlane = fFarPlane; }
+
+			void SetRenderScene(RenderScene* pRenderScene);
 
 		protected:
 

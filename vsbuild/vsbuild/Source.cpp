@@ -8,17 +8,21 @@
 using namespace sixday::render;
 using namespace sixday::utilits;
 
-RenderScene scene(800, 600, "Test Window");
+RenderScene scene(1024, 768, "Test Window");
 
 int main()
 {
 	ResourcesUtilits::LoadShader("basic_cube_shader", "basic_cube.vs", "basic_cube.fs");
 
-	Camera camera(scene);
+	Camera camera(glm::vec3(0, 0, -3), glm::vec3(0, 1, 0));
+
 
 	Cube cube;
 	cube.Initialize();
+	cube.SetPosition(glm::vec3(0, 0, 0));
 	//cube.SetRotation(glm::vec3(5.0f, 45.0f, 3.0f));
+
+	scene.SetCamera(&camera);
 	scene.AddComponent(cube.GetGuid(), cube);
 
 	scene.Exec();

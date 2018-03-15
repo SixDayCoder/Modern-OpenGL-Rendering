@@ -57,6 +57,7 @@ namespace sixday
 		{
 			assert(camera);
 			m_pCamera = camera;
+			m_pCamera->SetRenderScene(this);
 		}
 
 		void RenderScene::AddComponent(Guid guid, Component & rComponent)
@@ -69,26 +70,15 @@ namespace sixday
 			m_ComponentMap.insert(std::make_pair(guid, &rComponent));
 		}
 
-		const Component & RenderScene::GetComponentByGuid(Guid guid) const
+		const Component* RenderScene::GetComponentByGuid(Guid guid) const
 		{
 			auto it = m_ComponentMap.find(guid);
 			if (it != m_ComponentMap.end())
 			{
 				assert(it->second);
-				return *it->second;
+				return it->second;
 			}
-			assert(false);
-		}
-
-		Component & RenderScene::GetComponentByGuid(Guid guid)
-		{
-			auto it = m_ComponentMap.find(guid);
-			if (it != m_ComponentMap.end())
-			{
-				assert(it->second);
-				return *it->second;
-			}
-			assert(false);
+			return nullptr;
 		}
 
 		void RenderScene::Exec()
@@ -101,15 +91,15 @@ namespace sixday
 				for (ComponentMap::iterator it = m_ComponentMap.begin(); it != m_ComponentMap.end(); ++it)
 				{
 					Component* component = it->second;
+					assert(component != nullptr);
 					if (component->Enable())
 					{
 						component->Update(fEplasedTime);
 					}
 				}
-
+				
+				assert(m_pCamera);
 				m_pCamera->Update(fEplasedTime);
-				m_pCamera->ViewMatrix();
-				m_pCamera->ProjectionMatrix();
 
 				glEnable(GL_DEPTH);
 				glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
@@ -118,6 +108,7 @@ namespace sixday
 				for (ComponentMap::iterator it = m_ComponentMap.begin(); it != m_ComponentMap.end(); it++)
 				{
 					Component* component = it->second;
+					assert(component != nullptr);
 					if (component->Enable() && component->IsDrawableComponent())
 					{
 						DrawableComponent* dComponent = dynamic_cast<DrawableComponent*>(component);

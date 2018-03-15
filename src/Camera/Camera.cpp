@@ -11,26 +11,25 @@ namespace sixday
 	{
 		const float Camera::DefaultFieldOfView = utilits::MathUtilits::PI_DIV_4;
 		const float Camera::DefaultNearPlane = 0.1f;
-		const float Camera::DefatultFarPlane = 100.0f;
+		const float Camera::DefatultFarPlane = 1000.0f;
 
-		Camera::Camera(RenderScene & rRenderScene)
-			   :Component(rRenderScene),
+		Camera::Camera(const glm::vec3& pos, const glm::vec3& worldUp)
+			   :Component(),
 				m_fFieldOfView(DefaultFieldOfView),
 				m_fNearPlane(DefaultNearPlane),
 				m_fFarPlane(DefatultFarPlane)
 		{
-			m_pRenderScene = &rRenderScene;
-			rRenderScene.SetCamera(this);
+			m_Position = pos;
+			m_Up = worldUp;
 		}
 
-		Camera::Camera(RenderScene & rRenderScene, float fFieldOfView, float fNearPlane, float fFarPlane)
-			   :Component(rRenderScene),
+		Camera::Camera(const glm::vec3& pos, const glm::vec3& wolrdUp, float fFieldOfView, float fNearPlane, float fFarPlane)
+			   :Component(),
 				m_fFieldOfView(fFieldOfView),
 				m_fNearPlane(fNearPlane),
 				m_fFarPlane(fFarPlane)
 		{
-			m_pRenderScene = &rRenderScene;
-			rRenderScene.SetCamera(this);
+
 		}
 
 		Camera::~Camera()
@@ -51,7 +50,6 @@ namespace sixday
 		void Camera::Initialize()
 		{
 			Component::Initialize();
-
 		}
 
 		void Camera::Update(float fDeltaTime)
@@ -63,15 +61,26 @@ namespace sixday
 			UpdateMatrix();
 		}
 
+		void Camera::SetRenderScene(RenderScene * pRenderScene)
+		{
+			assert(pRenderScene);
+			m_pRenderScene = pRenderScene;
+		}
+
 		void Camera::UpdateMatrix()
 		{
-			glm::lookAt(m_Position, m_Position + m_Direction, m_Up);
-			glm::perspective(m_fFieldOfView, m_pRenderScene->Aspect(), m_fNearPlane, m_fFarPlane);
+			m_ViewMatrix = glm::lookAt(m_Position, m_Position + m_Direction, m_Up);
+			m_ProjectionMatrix = glm::perspective(m_fFieldOfView, m_pRenderScene->Aspect(), m_fNearPlane, m_fFarPlane);
 		}
 
 		void Camera::UpdateDirections()
 		{
+			//TODO : ¡Ÿ ±Update
+			m_Direction = glm::vec3(0, 0, -1.0f);
 
+			m_Direction = glm::normalize(m_Direction);
+			m_Right = glm::normalize(glm::cross(m_Direction, glm::vec3(0, 1, 0)));
+			m_Up = glm::normalize(glm::cross(m_Right, m_Direction));
 		}
 
 	}
