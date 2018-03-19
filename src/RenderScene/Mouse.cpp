@@ -1,4 +1,5 @@
 #include "RenderScene\Mouse.h"
+#include <cassert>
 
 namespace sixday
 {
@@ -20,6 +21,7 @@ namespace sixday
 
 		void Mouse::SetWindow(GLFWwindow * window)
 		{
+			assert(window);
 			m_pWindow = window;
 		}
 
