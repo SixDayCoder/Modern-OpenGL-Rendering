@@ -3,6 +3,8 @@
 #include "Component\DrawableComponent.h"
 #include "Camera\Camera.h"
 #include "Utilits\ResourcesUtilits.h"
+#include "RenderScene\Mouse.h"
+#include "RenderScene\Keyboard.h"
 #include <cassert>
 #include <iostream>
 
@@ -13,6 +15,48 @@ namespace sixday
 		void RenderScene::CalcAspect()
 		{		
 			m_fAspect = static_cast<float>(m_nWidth) / static_cast<float>(m_nHeight);
+		}
+
+		void RenderScene::UpdateComponent(float fEplasedTime)
+		{
+			KeyBoard::UpdateKeyState();
+
+			for (ComponentMap::iterator it = m_ComponentMap.begin(); it != m_ComponentMap.end(); ++it)
+			{
+				Component* component = it->second;
+				assert(component != nullptr);
+				if (component->Enable())
+				{
+					component->Update(fEplasedTime);
+				}
+			}
+
+			assert(m_pCamera);
+			m_pCamera->Update(fEplasedTime);
+			
+
+			//每一帧的结束清除Key的状态
+			KeyBoard::ClearKeyState();
+			//每一帧结束清除Mouse的状态
+			Mouse::ClearMouseState();
+		}
+
+		void RenderScene::RenderComponent()
+		{
+			for (ComponentMap::iterator it = m_ComponentMap.begin(); it != m_ComponentMap.end(); it++)
+			{
+				Component* component = it->second;
+				assert(component != nullptr);
+				if (component->Enable() && component->IsDrawableComponent())
+				{
+					DrawableComponent* dComponent = dynamic_cast<DrawableComponent*>(component);
+					Shader shader = sixday::utilits::ResourcesUtilits::GetShader("basic_cube_shader");
+					shader.Use();
+					shader.SetMatrix4("view", m_pCamera->ViewMatrix());
+					shader.SetMatrix4("projection", m_pCamera->ProjectionMatrix());
+					dComponent->Draw(shader);
+				}
+			}
 		}
 
 		RenderScene::RenderScene(uint32 width, uint32 height, const std::string & title)
@@ -37,6 +81,9 @@ namespace sixday
 
 			Mouse::SetWindow(m_pWindow);
 			Mouse::ListenMouseMoveEvent();
+
+			KeyBoard::SetWindow(m_pWindow);
+			KeyBoard::ListenPushKeyDown();
 
 			glfwSetInputMode(m_pWindow, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 		}
@@ -88,37 +135,13 @@ namespace sixday
 			{
 				float fEplasedTime = static_cast<float>(clock.ElapsedTime());
 				
-				for (ComponentMap::iterator it = m_ComponentMap.begin(); it != m_ComponentMap.end(); ++it)
-				{
-					Component* component = it->second;
-					assert(component != nullptr);
-					if (component->Enable())
-					{
-						component->Update(fEplasedTime);
-					}
-				}
-				
-				assert(m_pCamera);
-				m_pCamera->Update(fEplasedTime);
+				UpdateComponent(fEplasedTime);
 
 				glEnable(GL_DEPTH);
 				glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 				glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-				for (ComponentMap::iterator it = m_ComponentMap.begin(); it != m_ComponentMap.end(); it++)
-				{
-					Component* component = it->second;
-					assert(component != nullptr);
-					if (component->Enable() && component->IsDrawableComponent())
-					{
-						DrawableComponent* dComponent = dynamic_cast<DrawableComponent*>(component);
-						Shader shader = sixday::utilits::ResourcesUtilits::GetShader("basic_cube_shader");
-						shader.Use();
-						shader.SetMatrix4("view", m_pCamera->ViewMatrix());
-						shader.SetMatrix4("projection", m_pCamera->ProjectionMatrix());
-						dComponent->Draw(shader);
-					}
-				}
+				RenderComponent();
 
 				glfwSwapBuffers(m_pWindow);
 				glfwPollEvents();

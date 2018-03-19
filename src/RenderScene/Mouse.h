@@ -20,27 +20,28 @@ namespace sixday
 			static bool  m_bIsFirstMouseMove;
 			static float m_fDeltaX;
 			static float m_fDeltaY;
+			static bool  m_bIsMoving;
 
 			static GLFWwindow* m_pWindow;
 
 		public:
 
-			static void SetWindow(GLFWwindow* window);
+			static void  SetWindow(GLFWwindow* window);
 
-			static void SetX(float x) { m_fX = x; }
+			static void  SetX(float x) { m_fX = x; }
 			static float X() { return m_fX; }
 
-			static void SetY(float y) { m_fY = y; }
+			static void  SetY(float y) { m_fY = y; }
 			static float Y() { return m_fY; }
 
-			static void SetLastX(float x) { m_fLastX = x; }
+			static void  SetLastX(float x) { m_fLastX = x; }
 			static float LastX() { return m_fLastX; }
 
-			static void SetLastY(float y) { m_fLastY = y; }
+			static void  SetLastY(float y) { m_fLastY = y; }
 			static float LastY() { return m_fLastY; }
 
-			static float DeltaX() { return m_fDeltaX; }
-			static float DeltaY() { return m_fDeltaY; }
+			static float DeltaX() { return m_bIsMoving == true ? m_fDeltaX : 0.0f; }
+			static float DeltaY() { return m_bIsMoving == true ? m_fDeltaY : 0.0f; }
 
 			//监听mouse移动事件
 			static void ListenMouseMoveEvent();
@@ -53,6 +54,9 @@ namespace sixday
 
 			//监听mouse释放事件
 			static void ListenMouseReleaseEvent();
+
+			//每一帧结束清楚状态
+			static void ClearMouseState();
 
 		private:
 

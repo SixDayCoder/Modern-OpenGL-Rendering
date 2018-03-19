@@ -77,7 +77,6 @@ namespace sixday
 
 		void Camera::UpdateDirections()
 		{
-			//TODO : ¡Ÿ ±Update
 			m_Direction = glm::vec3(0, 0, 1.0f);
 
 			m_Direction = glm::normalize(m_Direction);

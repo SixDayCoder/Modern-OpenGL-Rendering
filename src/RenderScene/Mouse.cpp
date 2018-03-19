@@ -1,5 +1,6 @@
 #include "RenderScene\Mouse.h"
 #include <cassert>
+#include <iostream>
 
 namespace sixday
 {
@@ -16,6 +17,7 @@ namespace sixday
 		bool  Mouse::m_bIsFirstMouseMove = true;
 		float Mouse::m_fDeltaX = 0.0f;
 		float Mouse::m_fDeltaY = 0.0f;
+		bool  Mouse::m_bIsMoving = false;
 
 		GLFWwindow* Mouse::m_pWindow = nullptr;
 
@@ -42,8 +44,14 @@ namespace sixday
 		{
 		}
 
+		void Mouse::ClearMouseState()
+		{
+			m_bIsMoving = false;
+		}
+
 		void Mouse::MouseMoveCallBack(GLFWwindow* window, double xpos, double ypos)
 		{
+			m_bIsMoving = true;
 			if (m_bIsFirstMouseMove)
 			{
 				m_fLastX = (float)xpos;

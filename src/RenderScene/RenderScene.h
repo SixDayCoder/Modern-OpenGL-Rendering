@@ -40,6 +40,10 @@ namespace sixday
 			void CalcAspect();
 
 
+			void UpdateComponent(float fEplasedTime);
+
+			void RenderComponent();
+
 		public:
 
 			RenderScene(uint32 width, uint32 height, const std::string& title);
