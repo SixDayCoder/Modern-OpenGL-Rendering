@@ -14,6 +14,8 @@ namespace sixday
 
 		const std::string FileUtiltis::Texture2DRoot = std::tr2::sys::current_path().parent_path().parent_path().append("\\resources\\image\\").string();
 
+		const std::string FileUtiltis::ModelRoot = std::tr2::sys::current_path().parent_path().parent_path().append("\\resources\\model\\").string();
+
 		std::string FileUtiltis::GetCurrentDir()
 		{
 			std::tr2::sys::path  path = std::tr2::sys::current_path();

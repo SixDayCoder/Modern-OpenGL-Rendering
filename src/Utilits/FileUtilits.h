@@ -34,6 +34,8 @@ namespace sixday
 
 			static const std::string Texture2DRoot;
 
+			static const std::string ModelRoot;
+
 		};
 	}
 }

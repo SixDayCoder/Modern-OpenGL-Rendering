@@ -15,6 +15,8 @@ int main()
 {
 	ResourcesUtilits::LoadShader("basic_cube_shader", "basic_cube.vs", "basic_cube.fs");
 
+	ResourcesUtilits::LoadModel("teapot", "teapot.obj");
+
 	Camera camera(glm::vec3(0, 0, -3), glm::vec3(0, 1, 0));
 
 	FPSCamera cam(glm::vec3(0, 0, -3), glm::vec3(0, 1, 0));

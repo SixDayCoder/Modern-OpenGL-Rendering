@@ -9,6 +9,7 @@ namespace sixday
 	{
 		DrawableComponent::DrawableComponent() : Component()
 		{
+
 		}
 
 		DrawableComponent::DrawableComponent(RenderScene & rRenderScene) : Component(rRenderScene)
@@ -38,6 +39,7 @@ namespace sixday
 			m_Indices.clear();
 
 		}
+
 		void DrawableComponent::UpdateModelMatrix()
 		{
 			glm::mat4 model;

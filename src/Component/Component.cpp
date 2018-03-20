@@ -42,16 +42,5 @@ namespace sixday
 			time_type now = std::chrono::time_point_cast<microseconds>(std::chrono::high_resolution_clock::now());
 			return now.time_since_epoch().count();
 		}
-
-		Component::Component(const Component & rhs)
-		{
-
-		}
-
-		Component & Component::operator=(const Component & rhs)
-		{
-			// TODO: insert return statement here
-			return *this;
-		}
 	}
 }

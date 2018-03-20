@@ -1,5 +1,6 @@
 #include "Utilits\ResourcesUtilits.h"
 #include "Utilits\FileUtilits.h"
+
 #include <iostream>
 #include <filesystem>
 
@@ -10,6 +11,8 @@ namespace sixday
 		ResourcesUtilits::ShaderResourcesMap ResourcesUtilits::ShaderMap;
 
 		ResourcesUtilits::Texture2DResourcesMap ResourcesUtilits::Texture2DMap;
+
+		ResourcesUtilits::ModelResourcesMap  ResourcesUtilits::ModelMap;
 
 		void ResourcesUtilits::LoadShader(const std::string & name, const char * vShaderFile, const char * fShaderFile, const char * gShaderFile)
 		{
@@ -56,6 +59,23 @@ namespace sixday
 		{
 			auto it = Texture2DMap.find(name);
 			assert(it != Texture2DMap.end());
+			return it->second;
+		}
+		void ResourcesUtilits::LoadModel(const std::string & name, const char * file)
+		{
+			assert(file);
+
+			std::string path = FileUtiltis::ModelRoot + file;
+
+			Model model;
+			model.LoadFromFile(path);
+			ModelMap.insert(std::make_pair(name, model));
+		}
+
+		sixday::render::Model ResourcesUtilits::GetModel(const std::string & name)
+		{
+			auto it = ModelMap.find(name);
+			assert(it != ModelMap.end());
 			return it->second;
 		}
 	}

@@ -45,6 +45,10 @@ namespace sixday
 
 			virtual void Initialize()override;
 
+			virtual void BindData() {};
+
+			virtual void UpdateModelMatrix();
+
 		protected:
 
 			uint32 m_VAO;
@@ -61,10 +65,6 @@ namespace sixday
 
 			std::vector<Vertex> m_Vertices;
 			std::vector<uint32> m_Indices;
-
-			virtual void BindData() {};
-
-			virtual void UpdateModelMatrix();
 
 		};
 	}

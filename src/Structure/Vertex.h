@@ -25,6 +25,19 @@ namespace sixday
 
 			}
 
+			Vertex()
+			{
+				CleanUp();
+			}
+
+			void CleanUp()
+			{
+				position  =  glm::vec3(0, 0, 0);
+				texcoord  =  glm::vec2(0, 0);
+				normal    =  glm::vec3(0, 0, 0);
+				tangent   =  glm::vec3(0, 0, 0);
+				bitangent =  glm::vec3(0, 0, 0);
+			}
 		};
 	}
 }
