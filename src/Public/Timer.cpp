@@ -10,7 +10,7 @@ namespace sixday
 
 	double Timer::ElapsedTime()const
 	{
-		microseconds tp = m_CurrentTime.time_since_epoch() - m_StartTime.time_since_epoch();
+		microseconds tp = m_CurrentTime.time_since_epoch() - m_LastTime.time_since_epoch();
 		return static_cast<double>(tp.count() / 1000000.0f);
 	}
 
@@ -39,9 +39,9 @@ namespace sixday
 
 	void Timer::Tick()
 	{
-		m_CurrentTime = std::chrono::time_point_cast<microseconds>(std::chrono::high_resolution_clock::now());
-		m_DeltaTime = m_CurrentTime.time_since_epoch() - m_LastTime.time_since_epoch();
 		m_LastTime = m_CurrentTime;
+		m_CurrentTime = std::chrono::time_point_cast<microseconds>(std::chrono::high_resolution_clock::now());
+		m_DeltaTime = m_CurrentTime.time_since_epoch() - m_LastTime.time_since_epoch();	
 	}
 
 	void Timer::CleanUp()

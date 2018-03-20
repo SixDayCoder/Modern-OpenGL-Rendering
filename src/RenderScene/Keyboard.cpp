@@ -1,5 +1,6 @@
 #include "RenderScene\Keyboard.h"
 #include <cassert>
+#include <iostream>
 namespace sixday
 {
 	namespace render

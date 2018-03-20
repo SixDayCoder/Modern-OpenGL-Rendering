@@ -25,7 +25,7 @@ namespace sixday
 			
 			using ComponentMap = std::map<Guid, Component*>;
 
-			Timer clock;
+			Timer m_Clock;
 
 			GLFWwindow *m_pWindow;
 			Camera* m_pCamera;

@@ -79,6 +79,8 @@ namespace sixday
 	
 			CalcAspect();
 
+			m_Clock.CleanUp();
+
 			Mouse::SetWindow(m_pWindow);
 			Mouse::ListenMouseMoveEvent();
 
@@ -130,17 +132,17 @@ namespace sixday
 
 		void RenderScene::Exec()
 		{
-			clock.Start();
+			m_Clock.Start();
 			while (!glfwWindowShouldClose(m_pWindow))
 			{
-				float fEplasedTime = static_cast<float>(clock.ElapsedTime());
-				
-				UpdateComponent(fEplasedTime);
+				m_Clock.Tick();
+				float fEplasedTime = static_cast<float>(m_Clock.ElapsedTime());
 
 				glEnable(GL_DEPTH);
 				glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 				glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
+				
+				UpdateComponent(fEplasedTime);
 				RenderComponent();
 
 				glfwSwapBuffers(m_pWindow);

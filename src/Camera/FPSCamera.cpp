@@ -105,7 +105,7 @@ namespace sixday
 
 		void FPSCamera::Move(CameraMove dir, float fDeltaTime)
 		{
-			float distance = fDeltaTime * 0.5f;
+			float distance = fDeltaTime * m_fMoveSpeed;
 
 			if (dir == CameraMove::MOVE_FRONT)
 			{
@@ -124,7 +124,7 @@ namespace sixday
 
 			if (dir == CameraMove::MOVE_RIGHT)
 			{
-				m_Direction += m_Right * distance;
+				m_Position += m_Right * distance;
 			}
 		}
 
