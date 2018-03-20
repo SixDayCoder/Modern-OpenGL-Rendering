@@ -24,17 +24,18 @@ namespace sixday
 			for (ComponentMap::iterator it = m_ComponentMap.begin(); it != m_ComponentMap.end(); ++it)
 			{
 				Component* component = it->second;
-				assert(component != nullptr);
-				if (component->Enable())
+				
+				if ( (component != nullptr) && component->Enable())
 				{
 					component->Update(fEplasedTime);
 				}
 			}
 
-			assert(m_pCamera);
-			m_pCamera->Update(fEplasedTime);
+			if (m_pCamera != nullptr)
+			{
+				m_pCamera->Update(fEplasedTime);
+			}
 			
-
 			//每一帧的结束清除Key的状态
 			KeyBoard::ClearKeyState();
 			//每一帧结束清除Mouse的状态
@@ -46,15 +47,20 @@ namespace sixday
 			for (ComponentMap::iterator it = m_ComponentMap.begin(); it != m_ComponentMap.end(); it++)
 			{
 				Component* component = it->second;
-				assert(component != nullptr);
-				if (component->Enable() && component->IsDrawableComponent())
+				if (component != nullptr)
 				{
-					DrawableComponent* dComponent = dynamic_cast<DrawableComponent*>(component);
-					Shader shader = sixday::utilits::ResourcesUtilits::GetShader("basic_cube_shader");
-					shader.Use();
-					shader.SetMatrix4("view", m_pCamera->ViewMatrix());
-					shader.SetMatrix4("projection", m_pCamera->ProjectionMatrix());
-					dComponent->Draw(shader);
+					if (component->Enable() && component->IsDrawableComponent())
+					{
+						DrawableComponent* dComponent = dynamic_cast<DrawableComponent*>(component);
+						Shader shader = sixday::utilits::ResourcesUtilits::GetShader("basic_cube_shader");
+						shader.Use();
+						shader.SetMatrix4("view", m_pCamera->ViewMatrix());
+						shader.SetMatrix4("projection", m_pCamera->ProjectionMatrix());
+						if (dComponent != nullptr)
+						{
+							dComponent->Draw(shader);
+						}
+					}
 				}
 			}
 		}

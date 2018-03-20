@@ -12,6 +12,15 @@ namespace sixday
 	
 	namespace render
 	{
+		enum class Texture2DType
+		{
+			TEXTURE_2D_TYPE_ALBEDO = 0, //漫反射贴图
+			TEXTURE_2D_TYPE_NORMAL = 1, //法线贴图
+			TEXTURE_2D_TYPE_BUMP   = 2, //凹凸贴图
+			TEXTURE_2D_TYPE_SHADOW = 3, //阴影贴图
+			TEXTURE_2D_TYPE_MAX    = 10
+		};
+
 		class Texture2D
 		{
 		private:

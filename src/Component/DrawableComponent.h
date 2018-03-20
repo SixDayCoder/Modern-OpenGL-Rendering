@@ -62,11 +62,9 @@ namespace sixday
 			std::vector<Vertex> m_Vertices;
 			std::vector<uint32> m_Indices;
 
-		private:
-
 			virtual void BindData() {};
 
-			void UpdateModelMatrix();
+			virtual void UpdateModelMatrix();
 
 		};
 	}

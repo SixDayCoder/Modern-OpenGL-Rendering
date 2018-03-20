@@ -73,6 +73,12 @@
     <ClCompile Include="..\..\src\RenderScene\Mouse.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\Component\Mesh.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Component\Model.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\Component\Component.h">
@@ -122,6 +128,12 @@
     </ClInclude>
     <ClInclude Include="..\..\src\RenderScene\Mouse.h">
       <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Component\Mesh.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Component\Model.h">
+      <Filter>Component</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

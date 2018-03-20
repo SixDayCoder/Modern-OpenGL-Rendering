@@ -37,14 +37,8 @@ namespace sixday
 		sixday::render::Shader ResourcesUtilits::GetShader(const std::string & name)
 		{
 			auto it = ShaderMap.find(name);
-			if (it != ShaderMap.end())
-			{
-				return it->second;
-			}
-			else
-			{
-				std::cout << "Can't find shader named : " << name << std::endl;
-			}
+			assert(it != ShaderMap.end());
+			return it->second;
 		}
 
 		void ResourcesUtilits::LoadTexture2D(const std::string & name, const char * file)
@@ -61,14 +55,8 @@ namespace sixday
 		sixday::render::Texture2D ResourcesUtilits::GetTexture2D(const std::string & name)
 		{
 			auto it = Texture2DMap.find(name);
-			if (it != Texture2DMap.end())
-			{
-				return it->second;
-			}
-			else
-			{
-				std::cout << "Can't find Texture2D named : " << name << std::endl;
-			}
+			assert(it != Texture2DMap.end());
+			return it->second;
 		}
 	}
 }
