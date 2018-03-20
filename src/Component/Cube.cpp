@@ -1,6 +1,7 @@
 #include "Component\Cube.h"
 #include "Resources\Shader.h"
 #include "RenderScene\RenderScene.h"
+#include "Camera\Camera.h"
 
 namespace sixday
 {
@@ -96,8 +97,12 @@ namespace sixday
 		{
 			BindData();
 
+			assert(m_pCamera);
+
 			shader.Use();
 			shader.SetMatrix4("model", m_Model);
+			shader.SetMatrix4("view", m_pCamera->ViewMatrix());
+			shader.SetMatrix4("projection", m_pCamera->ProjectionMatrix());
 
 			glBindVertexArray(m_VAO);
 			glDrawElements(GL_TRIANGLES, m_Indices.size(), GL_UNSIGNED_INT, 0);

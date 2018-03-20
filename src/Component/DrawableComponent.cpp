@@ -1,7 +1,10 @@
 #include "Component\DrawableComponent.h"
+#include "Camera\Camera.h"
+
 #include "Resources\Shader.h"
 #include "RenderScene\RenderScene.h"
-#include "glm\gtc\matrix_transform.hpp"
+
+#include <glm\gtc\matrix_transform.hpp>
 
 namespace sixday
 {
@@ -14,6 +17,12 @@ namespace sixday
 
 		DrawableComponent::DrawableComponent(RenderScene & rRenderScene) : Component(rRenderScene)
 		{
+		}
+
+		void DrawableComponent::SetCamera(Camera * camera)
+		{
+			assert(camera);
+			m_pCamera = camera;
 		}
 
 		void DrawableComponent::Update(float fEplasedTime)

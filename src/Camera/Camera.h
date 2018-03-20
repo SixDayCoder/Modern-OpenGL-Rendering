@@ -68,12 +68,6 @@ namespace sixday
 			glm::mat4 m_ProjectionMatrix;
 
 			RenderScene* m_pRenderScene;
-
-		private:
-
-			Camera(const Camera& rhs) {}
-			Camera& operator=(const Camera& rhs) {}
-
 		};
 	}
 }

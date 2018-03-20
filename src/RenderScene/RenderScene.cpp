@@ -53,9 +53,6 @@ namespace sixday
 					{
 						DrawableComponent* dComponent = dynamic_cast<DrawableComponent*>(component);
 						Shader shader = sixday::utilits::ResourcesUtilits::GetShader("basic_cube_shader");
-						shader.Use();
-						shader.SetMatrix4("view", m_pCamera->ViewMatrix());
-						shader.SetMatrix4("projection", m_pCamera->ProjectionMatrix());
 						if (dComponent != nullptr)
 						{
 							dComponent->Draw(shader);
@@ -121,7 +118,19 @@ namespace sixday
 			{
 				return;
 			}		
+
+			if (m_pCamera == nullptr)
+			{
+				return;
+			}
+
 			rComponent.SetRenderScene(*this);
+			if (rComponent.IsDrawableComponent())
+			{
+				DrawableComponent& dComponent = dynamic_cast<DrawableComponent&>(rComponent);
+				dComponent.SetCamera(m_pCamera);
+			}
+
 			m_ComponentMap.insert(std::make_pair(guid, &rComponent));
 		}
 
