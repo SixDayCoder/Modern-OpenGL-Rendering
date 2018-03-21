@@ -15,24 +15,20 @@ int main()
 {
 	ResourcesUtilits::LoadShader("basic_cube_shader", "basic_cube.vs", "basic_cube.fs");
 
-	//ResourcesUtilits::LoadModel("teapot", "teapot.obj");
+	ResourcesUtilits::LoadShader("basic_teapot_shader", "basic_teapot.vs", "basic_teapot.fs");
 
-	Camera camera(glm::vec3(0, 0, -3), glm::vec3(0, 1, 0));
+	ResourcesUtilits::LoadModel("basic_teapot", "teapot.obj");
 
-	FPSCamera cam(glm::vec3(0, 0, -3), glm::vec3(0, 1, 0));
+	FPSCamera camera(glm::vec3(0, 0, -3), glm::vec3(0, 1, 0));
 
-	Cube cube;
-	cube.Initialize();
-	cube.SetPosition(glm::vec3(0, 0, 0));
-	cube.SetRotation(glm::vec3(5.0f, 45.0f, 3.0f));
 
-	Cube xCube;
-	xCube.Initialize();
-	xCube.SetPosition(glm::vec3(1, 0, 0));
+	Model model = ResourcesUtilits::GetModel("basic_teapot");
+	model.Initialize();
+	model.SetPosition(0.0f, 0.0f, 0.0f);
+	model.SetScale(0.1f, 0.1f, 0.1f);
 
-	scene.SetCamera(&cam);
-	scene.AddComponent(cube.GetGuid(), cube);
-	scene.AddComponent(xCube.GetGuid(), xCube);
+	scene.SetCamera(&camera);
+	scene.AddComponent(model.GetGuid(), model);
 
 	scene.Exec();
 	return 0;

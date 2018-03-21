@@ -36,6 +36,12 @@ namespace sixday
 			void SetScale(float xScale, float yScale, float zScale) { m_Scale = glm::vec3(xScale, yScale, zScale); }
 			glm::vec3 GetScale()const { return m_Scale; }
 
+			void SetVertices(const std::vector<Vertex>& vertexs) { m_Vertices = vertexs; }
+			const std::vector<Vertex>& GetVertices()const { return m_Vertices; }
+
+			void SetIndices(const std::vector<uint32>& indices) { m_Indices = indices; }
+			const std::vector<uint32>& GetIndices()const { return m_Indices; }
+
 			void SetModelMatrix(const glm::mat4& model) { m_Model = model; }
 			glm::mat4 GetModleMatrix()const { return m_Model; }
 

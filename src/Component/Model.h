@@ -28,14 +28,19 @@ namespace sixday
 
 			virtual void BindData()override;
 
+			virtual void Draw(Shader& shader)override;
+
+			virtual void Update(float fDeltaTime)override;
+
 		private:
 
 			std::vector<Mesh> m_Meshes;
 
-			//载入模型的辅助函数
+			//Start----------载入模型的辅助函数---------------Start//
 			void ProcessNode(aiNode* node, const aiScene* scene);
 
 			void ProcessMesh(aiMesh* mesh, const aiScene* scene);
+			//End------------载入模型的辅助函数-----------------End//
 		};
 	}
 }

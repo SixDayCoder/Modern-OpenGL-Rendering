@@ -1,5 +1,7 @@
 #include "Component\Model.h"
-#include "Structure\Vertex.h"
+#include "Component\Mesh.h"
+#include "Resources\Shader.h"
+#include "Camera\Camera.h"
 
 #include <iostream>
 
@@ -52,6 +54,28 @@ namespace sixday
 			for (auto it : m_Meshes)
 			{
 				it.BindData();
+			}
+		}
+
+		void Model::Draw(Shader & shader)
+		{
+			assert(m_pCamera);
+
+			shader.Use();
+			shader.SetMatrix4("view", m_pCamera->ViewMatrix());
+			shader.SetMatrix4("projection", m_pCamera->ProjectionMatrix());
+
+			for (auto it : m_Meshes)
+			{
+				it.Draw(shader);
+			}
+		}
+
+		void Model::Update(float fDeltaTime)
+		{
+			for (auto it : m_Meshes)
+			{
+				it.Update(fDeltaTime);
 			}
 		}
 
@@ -140,6 +164,14 @@ namespace sixday
 			}
 
 			//textures
+
+			Mesh m;
+			
+			m.SetVertices(vertices);
+			m.SetIndices(indices);
+			m.BindData();
+
+			m_Meshes.push_back(m);
 		}
 	}
 }

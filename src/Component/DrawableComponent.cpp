@@ -32,6 +32,11 @@ namespace sixday
 
 		void DrawableComponent::Initialize()
 		{
+			if (m_IsBindedData)
+			{
+				return;
+			}
+
 			Component::Initialize();
 
 			m_VAO = 0;

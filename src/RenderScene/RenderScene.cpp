@@ -19,6 +19,7 @@ namespace sixday
 
 		void RenderScene::UpdateComponent(float fEplasedTime)
 		{
+			//每一帧更新键盘的按键状态
 			KeyBoard::UpdateKeyState();
 
 			for (ComponentMap::iterator it = m_ComponentMap.begin(); it != m_ComponentMap.end(); ++it)
@@ -52,7 +53,7 @@ namespace sixday
 					if (component->Enable() && component->IsDrawableComponent())
 					{
 						DrawableComponent* dComponent = dynamic_cast<DrawableComponent*>(component);
-						Shader shader = sixday::utilits::ResourcesUtilits::GetShader("basic_cube_shader");
+						Shader shader = sixday::utilits::ResourcesUtilits::GetShader("basic_teapot_shader");
 						if (dComponent != nullptr)
 						{
 							dComponent->Draw(shader);
