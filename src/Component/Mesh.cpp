@@ -10,26 +10,12 @@ namespace sixday
 	{
 		Mesh::Mesh():DrawableComponent()
 		{
-			m_VAO = 0;
-			m_VBO = 0;
-			m_IBO = 0;
 
-			m_Vertices.clear();
-			m_Indices.clear();
-
-			m_bIsEnable = true;
-			m_IsBindedData = false;
-
-			m_Position = glm::vec3(0.0f, 0.0f, 0.0f);
-			m_Scale    = glm::vec3(1.0f, 1.0f, 1.0f);
-			m_Rotation = glm::vec3(0.0f, 0.0f, 0.0f);
-
-			m_pCamera = nullptr;
 		}
 
 		void Mesh::BindData()
 		{
-			if (m_IsBindedData)
+			if (m_bIsBindedData)
 			{
 				return;
 			}
@@ -63,37 +49,16 @@ namespace sixday
 			glBindVertexArray(0);
 
 
-			m_IsBindedData = true;
+			m_bIsBindedData = true;
 		}
 
 		void Mesh::Draw(Shader & shader)
 		{
 			BindData();
 
-			shader.Use();
-			shader.SetMatrix4("model", m_Model);
-
 			glBindVertexArray(m_VAO);
 			glDrawElements(GL_TRIANGLES, m_Indices.size(), GL_UNSIGNED_INT, 0);
 			glBindVertexArray(0);
-		}
-
-		void Mesh::Update(float fDeltaTime)
-		{
-			UpdateModelMatrix();
-		}
-
-		void Mesh::UpdateModelMatrix()
-		{
-			glm::mat4 model;
-
-			model = glm::translate(model, m_Position);
-			model = glm::scale(model, m_Scale);
-			model = glm::rotate(model, glm::radians(m_Rotation.x), glm::vec3(1, 0, 0));
-			model = glm::rotate(model, glm::radians(m_Rotation.y), glm::vec3(0, 1, 0));
-			model = glm::rotate(model, glm::radians(m_Rotation.z), glm::vec3(0, 0, 1));
-
-			m_Model = model;
 		}
 	}
 }

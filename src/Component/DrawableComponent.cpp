@@ -10,12 +10,12 @@ namespace sixday
 {
 	namespace render
 	{
-		DrawableComponent::DrawableComponent() : Component()
+		DrawableComponent::DrawableComponent() : Component(), m_bIsBindedData(false), m_pCamera(nullptr)
 		{
 
 		}
 
-		DrawableComponent::DrawableComponent(RenderScene & rRenderScene) : Component(rRenderScene)
+		DrawableComponent::DrawableComponent(RenderScene & rRenderScene) : Component(rRenderScene), m_bIsBindedData(false), m_pCamera(nullptr)
 		{
 		}
 
@@ -27,12 +27,12 @@ namespace sixday
 
 		void DrawableComponent::Update(float fEplasedTime)
 		{
-			UpdateModelMatrix();
+			UpdateModelMatrix(fEplasedTime);
 		}
 
 		void DrawableComponent::Initialize()
 		{
-			if (m_IsBindedData)
+			if (m_bIsBindedData)
 			{
 				return;
 			}
@@ -45,16 +45,16 @@ namespace sixday
 
 			m_Position = glm::vec3(0, 0, 0);
 			m_Rotation = glm::vec3(0, 0, 0);
-			m_Scale = glm::vec3(1, 1, 1);
-
-			m_IsBindedData = false;
+			m_Scale = glm::vec3(1.0f, 1.0f, 1.0f);
 
 			m_Vertices.clear();
 			m_Indices.clear();
 
+			m_pCamera = nullptr;
+
 		}
 
-		void DrawableComponent::UpdateModelMatrix()
+		void DrawableComponent::UpdateModelMatrix(float fEplasedTime)
 		{
 			glm::mat4 model;
 

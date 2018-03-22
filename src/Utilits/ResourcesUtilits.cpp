@@ -68,6 +68,7 @@ namespace sixday
 			std::string path = FileUtiltis::ModelRoot + file;
 
 			Model model;
+			model.Initialize();
 			model.LoadFromFile(path);
 			ModelMap.insert(std::make_pair(name, model));
 		}

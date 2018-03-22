@@ -43,17 +43,11 @@ namespace sixday
 
 		void Model::Initialize()
 		{
+			DrawableComponent::Initialize();
+
 			for (auto it : m_Meshes)
 			{
 				it.Initialize();
-			}
-		}
-
-		void Model::BindData()
-		{
-			for (auto it : m_Meshes)
-			{
-				it.BindData();
 			}
 		}
 
@@ -62,6 +56,7 @@ namespace sixday
 			assert(m_pCamera);
 
 			shader.Use();
+			shader.SetMatrix4("model", m_Model);
 			shader.SetMatrix4("view", m_pCamera->ViewMatrix());
 			shader.SetMatrix4("projection", m_pCamera->ProjectionMatrix());
 
@@ -73,9 +68,11 @@ namespace sixday
 
 		void Model::Update(float fDeltaTime)
 		{
-			for (auto it : m_Meshes)
+			UpdateModelMatrix(fDeltaTime);
+
+			for (auto mesh : m_Meshes)
 			{
-				it.Update(fDeltaTime);
+				mesh.SetModelMatrix(m_Model);
 			}
 		}
 

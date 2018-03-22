@@ -58,7 +58,7 @@ namespace sixday
 
 			virtual void BindData() {};
 
-			virtual void UpdateModelMatrix();
+			virtual void UpdateModelMatrix(float fEplasedTime);
 
 		protected:
 
@@ -72,7 +72,7 @@ namespace sixday
 
 			glm::mat4 m_Model;
 
-			bool m_IsBindedData;
+			bool m_bIsBindedData;
 
 			std::vector<Vertex> m_Vertices;
 			std::vector<uint32> m_Indices;

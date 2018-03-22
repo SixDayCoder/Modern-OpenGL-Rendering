@@ -26,8 +26,6 @@ namespace sixday
 
 			virtual void Initialize()override;
 
-			virtual void BindData()override;
-
 			virtual void Draw(Shader& shader)override;
 
 			virtual void Update(float fDeltaTime)override;

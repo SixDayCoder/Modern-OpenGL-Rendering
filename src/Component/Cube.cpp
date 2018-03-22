@@ -17,7 +17,7 @@ namespace sixday
 
 		void Cube::BindData()
 		{
-			if (m_IsBindedData)
+			if (m_bIsBindedData)
 			{
 				return;
 			}
@@ -51,7 +51,7 @@ namespace sixday
 
 			glBindVertexArray(0);
 
-			m_IsBindedData = true;
+			m_bIsBindedData = true;
 		}
 
 		void Cube::Initialize()

@@ -19,9 +19,6 @@ namespace sixday
 
 			virtual void Draw(Shader& shader)override;
 
-			virtual void Update(float fDeltaTime)override;
-
-			virtual void UpdateModelMatrix()override;
 		};
 
 	}

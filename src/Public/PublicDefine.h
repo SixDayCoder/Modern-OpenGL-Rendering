@@ -7,6 +7,10 @@
 
 namespace sixday
 {
+	#ifndef GLM_FORCE_RADIANS
+	#define GLM_FORCE_RADIANS
+	#endif
+
 	using uint32 = unsigned int;
 	using uint64 = unsigned long;
 	using byte = unsigned char;

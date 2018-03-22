@@ -20,16 +20,20 @@ int main()
 	ResourcesUtilits::LoadModel("basic_teapot", "teapot.obj");
 
 	FPSCamera camera(glm::vec3(0, 0, -3), glm::vec3(0, 1, 0));
-
+	scene.SetCamera(&camera);
 
 	Model model = ResourcesUtilits::GetModel("basic_teapot");
 	model.Initialize();
-	model.SetPosition(0.0f, 0.0f, 0.0f);
-	model.SetScale(0.1f, 0.1f, 0.1f);
-
-	scene.SetCamera(&camera);
+	model.SetPosition(-5.0f, 0.0f, 10.0f);
 	scene.AddComponent(model.GetGuid(), model);
 
+	Cube cube;
+	cube.Initialize();
+	cube.SetPosition(5.0f, 0.0f, 8.0f);
+	cube.SetScale(2.0f, 2.0f, 2.0f);
+	scene.AddComponent(cube.GetGuid(), cube);
+	
+	
 	scene.Exec();
 	return 0;
 }
