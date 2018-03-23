@@ -109,5 +109,21 @@ namespace sixday
 			glBindVertexArray(0);
 
 		}
+
+		void Cube::Draw()
+		{
+			BindData();
+
+			assert(m_pCamera);
+
+			m_Shader.Use();
+			m_Shader.SetMatrix4("model", m_Model);
+			m_Shader.SetMatrix4("view", m_pCamera->ViewMatrix());
+			m_Shader.SetMatrix4("projection", m_pCamera->ProjectionMatrix());
+
+			glBindVertexArray(m_VAO);
+			glDrawElements(GL_TRIANGLES, m_Indices.size(), GL_UNSIGNED_INT, 0);
+			glBindVertexArray(0);
+		}
 	}
 }

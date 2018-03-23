@@ -21,6 +21,8 @@ namespace sixday
 
 			virtual void Draw(Shader& shader) override;
 
+			virtual void Draw()override;
+
 		protected:
 
 			virtual void BindData()override;

@@ -24,11 +24,13 @@ int main()
 
 	Model model = ResourcesUtilits::GetModel("basic_teapot");
 	model.Initialize();
+	model.SetShader(ResourcesUtilits::GetShader("basic_teapot_shader"));
 	model.SetPosition(-5.0f, 0.0f, 10.0f);
 	scene.AddComponent(model.GetGuid(), model);
 
 	Cube cube;
 	cube.Initialize();
+	cube.SetShader(ResourcesUtilits::GetShader("basic_cube_shader"));
 	cube.SetPosition(5.0f, 0.0f, 8.0f);
 	cube.SetScale(2.0f, 2.0f, 2.0f);
 	scene.AddComponent(cube.GetGuid(), cube);

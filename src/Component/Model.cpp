@@ -66,6 +66,21 @@ namespace sixday
 			}
 		}
 
+		void Model::Draw()
+		{
+			assert(m_pCamera);
+
+			m_Shader.Use();
+			m_Shader.SetMatrix4("model", m_Model);
+			m_Shader.SetMatrix4("view", m_pCamera->ViewMatrix());
+			m_Shader.SetMatrix4("projection", m_pCamera->ProjectionMatrix());
+
+			for (auto it : m_Meshes)
+			{
+				it.Draw(m_Shader);
+			}
+		}
+
 		void Model::Update(float fDeltaTime)
 		{
 			UpdateModelMatrix(fDeltaTime);

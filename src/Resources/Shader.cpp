@@ -13,6 +13,11 @@ namespace sixday
 {
 	namespace render
 	{
+		Shader::Shader()
+		{
+			id = 0;
+		}
+
 		Shader::Shader(const char* vertexPath, const char* fragmentPath, const char* geometoryPath)
 		{
 			std::ifstream vShaderFile;

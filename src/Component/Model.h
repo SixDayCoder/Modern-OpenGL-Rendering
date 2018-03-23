@@ -28,6 +28,8 @@ namespace sixday
 
 			virtual void Draw(Shader& shader)override;
 
+			virtual void Draw()override;
+
 			virtual void Update(float fDeltaTime)override;
 
 		private:

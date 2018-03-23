@@ -1,3 +1,10 @@
 ﻿  Source.cpp
+  Mesh.cpp
+  Cube.cpp
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  ResourcesUtilits.cpp
+  RenderScene.cpp
+  Model.cpp
   vsbuild.vcxproj -> C:\Users\Administrator\Desktop\OpenGL\Modern-OpenGL-Rendering\vsbuild\Debug\vsbuild.exe
   vsbuild.vcxproj -> C:\Users\Administrator\Desktop\OpenGL\Modern-OpenGL-Rendering\vsbuild\Debug\vsbuild.pdb (Full PDB)

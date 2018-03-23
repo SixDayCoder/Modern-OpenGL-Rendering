@@ -53,10 +53,9 @@ namespace sixday
 					if (component->Enable() && component->IsDrawableComponent())
 					{
 						DrawableComponent* dComponent = dynamic_cast<DrawableComponent*>(component);
-						Shader shader = sixday::utilits::ResourcesUtilits::GetShader("basic_teapot_shader");
 						if (dComponent != nullptr)
 						{
-							dComponent->Draw(shader);
+							dComponent->Draw();
 						}
 					}
 				}

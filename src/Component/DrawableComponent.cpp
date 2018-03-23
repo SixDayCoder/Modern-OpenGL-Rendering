@@ -17,6 +17,7 @@ namespace sixday
 
 		DrawableComponent::DrawableComponent(RenderScene & rRenderScene) : Component(rRenderScene), m_bIsBindedData(false), m_pCamera(nullptr)
 		{
+
 		}
 
 		void DrawableComponent::SetCamera(Camera * camera)

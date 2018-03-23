@@ -3,6 +3,7 @@
 
 #include "Component\Component.h"
 #include "Structure\Vertex.h"
+#include "Resources\Shader.h"
 
 #include <glm\common.hpp>
 #include <glm\gtc\type_ptr.hpp>
@@ -45,10 +46,15 @@ namespace sixday
 			void SetModelMatrix(const glm::mat4& model) { m_Model = model; }
 			glm::mat4 GetModleMatrix()const { return m_Model; }
 
+			void SetShader(const Shader& shader) { m_Shader = shader; }
+			Shader GetShader()const { return m_Shader; }
+
 			void SetCamera(Camera* camera);
 			Camera* GetCamera()const { return m_pCamera; }
 
 			virtual void Draw(Shader& shader) {}
+
+			virtual void Draw() {}
 
 			virtual bool IsDrawableComponent()override { return true; }
 
@@ -78,6 +84,7 @@ namespace sixday
 			std::vector<uint32> m_Indices;
 
 			Camera* m_pCamera;
+			Shader  m_Shader;
 		};
 	}
 }
